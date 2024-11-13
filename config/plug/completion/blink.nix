@@ -1,18 +1,22 @@
 {
   plugins.blink-cmp = {
-    enable = false;
+    enable = true;
     settings = {
+
       accept = {
         auto_brackets = {
           enabled = true;
         };
       };
+
       documentation = {
         auto_show = true;
       };
+
       highlight = {
         use_nvim_cmp_as_default = true;
       };
+
       keymap = {
         accept = "<C-y>";
         hide = "<C-e>";
@@ -26,11 +30,13 @@
         snippet_backward = "<S-Tab>";
         snippet_forward = "<Tab>";
       };
+
       trigger = {
         signature_help = {
           enabled = true;
         };
       };
+
     };
   };
 }

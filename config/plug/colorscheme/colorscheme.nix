@@ -12,7 +12,14 @@
         lsp_semantic = true;
         mini_completion = true;
         telescope = true;
-        telescope_borders = false;
+        telescope_borders = true;
+      };
+    };
+
+    tokyonight = {
+      enable = true;
+      settings = {
+        style = "moon";
       };
     };
   };

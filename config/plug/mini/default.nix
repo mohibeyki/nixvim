@@ -9,11 +9,12 @@
     ./align.nix
     ./clue.nix
     ./diff.nix
-    ./files.nix
     ./hipatterns.nix
     ./icons.nix
     ./indentscope.nix
     ./notify.nix
+    ./sessions.nix
+    ./starter.nix
     ./surround.nix
   ];
 }

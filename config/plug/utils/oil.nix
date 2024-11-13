@@ -1,15 +1,20 @@
 { lib, config, ... }:
 {
   plugins.oil = {
-    enable = false;
+    enable = true;
     settings = {
       useDefaultKeymaps = true;
       deleteToTrash = true;
+      defaultFileExplorer = true;
+      viewOptions = {
+        showHidden = true;
+        naturalOrder = true;
+      };
       float = {
         padding = 2;
-        maxWidth = 0; # ''math.ceil(vim.o.lines * 0.8 - 4)'';
-        maxHeight = 0; # ''math.ceil(vim.o.columns * 0.8)'';
-        border = "rounded"; # 'single' | 'double' | 'shadow' | 'curved' | ... other options supported by win open
+        maxWidth = 0;
+        maxHeight = 0;
+        border = "rounded";
         winOptions = {
           winblend = 0;
         };

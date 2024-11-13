@@ -11,7 +11,6 @@
     ./plug/completion/blink.nix
     ./plug/completion/cmp.nix
     ./plug/completion/copilot-cmp.nix
-    ./plug/completion/codecompanion.nix
     ./plug/completion/schemastore.nix
 
     ./plug/git/gitblame.nix
@@ -35,7 +34,6 @@
     ./plug/treesitter/treesitter-textobjects.nix
     ./plug/treesitter/treesitter.nix
 
-    ./plug/ui/alpha.nix
     ./plug/ui/bufferline.nix
     ./plug/ui/dressing.nix
     ./plug/ui/indent-blankline.nix
