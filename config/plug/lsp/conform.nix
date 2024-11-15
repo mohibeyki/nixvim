@@ -10,58 +10,21 @@
       notify_on_error = true;
 
       formatters_by_ft = {
-        liquidsoap = [ "liquidsoap-prettier" ];
-        html = [
-          [
-            "prettierd"
-            "prettier"
-          ]
-        ];
-        css = [
-          [
-            "prettierd"
-            "prettier"
-          ]
-        ];
-        javascript = [
-          [
-            "prettierd"
-            "prettier"
-          ]
-        ];
-        javascriptreact = [
-          [
-            "prettierd"
-            "prettier"
-          ]
-        ];
-        typescript = [
-          [
-            "prettierd"
-            "prettier"
-          ]
-        ];
-        typescriptreact = [
-          [
-            "prettierd"
-            "prettier"
-          ]
+        c = [ "clang_format" ];
+        go = [
+          "gofmt"
+          "goimports"
         ];
         python = [ "black" ];
         lua = [ "stylua" ];
         nix = [ "nixfmt" ];
         markdown = [
-          [
-            "prettierd"
-            "prettier"
-          ]
+          "prettierd"
+          "prettier"
         ];
         yaml = [
           "yamllint"
           "yamlfmt"
-        ];
-        terragrunt = [
-          "hclfmt"
         ];
       };
     };

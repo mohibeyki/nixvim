@@ -61,12 +61,12 @@
           desc = "+buffer";
         };
       };
-      # "<leader>ff" = {
-      #   action = "find_files";
-      #   options = {
-      #     desc = "Find project files";
-      #   };
-      # };
+      "<leader>ff" = {
+        action = "find_files";
+        options = {
+          desc = "Find project files";
+        };
+      };
       "<leader>fr" = {
         action = "live_grep";
         options = {

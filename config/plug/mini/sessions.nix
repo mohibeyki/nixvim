@@ -1,3 +1,7 @@
 {
-  plugins.mini.modules.sessions = { };
+  plugins.mini.modules.sessions = {
+    opts = {
+      file = "session.vim";
+    };
+  };
 }

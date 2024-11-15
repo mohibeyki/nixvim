@@ -5,7 +5,7 @@
     filetypesDenylist = [
       "Outline"
       "TelescopePrompt"
-      "alpha"
+      "starter"
       "harpoon"
       "reason"
     ];

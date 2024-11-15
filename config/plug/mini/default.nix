@@ -6,15 +6,13 @@
 
   imports = [
     ./ai.nix
-    ./align.nix
-    ./clue.nix
-    ./diff.nix
+    ./bufremove.nix
+    ./comment.nix
     ./hipatterns.nix
     ./icons.nix
     ./indentscope.nix
-    ./notify.nix
-    ./sessions.nix
     ./starter.nix
+    ./sessions.nix
     ./surround.nix
   ];
 }

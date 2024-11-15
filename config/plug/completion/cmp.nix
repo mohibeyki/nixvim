@@ -17,32 +17,22 @@ in
 {
   plugins = {
     cmp = {
-      enable = false;
+      enable = true;
       autoEnableSources = true;
 
       settings = {
         mapping = {
-          "<C-d>" = # Lua
-            "cmp.mapping.scroll_docs(-4)";
-          "<C-f>" = # Lua
-            "cmp.mapping.scroll_docs(4)";
-          "<C-Space>" = # Lua
-            "cmp.mapping.complete()";
-          "<C-e>" = # Lua
-            "cmp.mapping.close()";
-          "<Tab>" = # Lua
-            "cmp.mapping(cmp.mapping.select_next_item({behavior = cmp.SelectBehavior.Select}), {'i', 's'})";
-          "<S-Tab>" = # Lua
-            "cmp.mapping(cmp.mapping.select_prev_item({behavior = cmp.SelectBehavior.Select}), {'i', 's'})";
-          "<CR>" = # Lua
-            "cmp.mapping.confirm({ select = false, behavior = cmp.ConfirmBehavior.Replace })";
+          "<C-n>" = "cmp.mapping.select_next_item()";
+          "<C-p>" = "cmp.mapping.select_prev_item()";
+          "<C-b>" = "cmp.mapping.scroll_docs(-4)";
+          "<C-f>" = "cmp.mapping.scroll_docs(4)";
+          "<C-y>" = "cmp.mapping.confirm({ select = true })";
+          "<C-Space>" = "cmp.mapping.complete()";
+          "<C-c>" = "cmp.mapping.close()";
         };
 
-        preselect = # Lua
-          "cmp.PreselectMode.None";
-
-        snippet.expand = # Lua
-          "function(args) require('luasnip').lsp_expand(args.body) end";
+        preselect = "cmp.PreselectMode.None";
+        snippet.expand = "function(args) require('luasnip').lsp_expand(args.body) end";
 
         sources = [
           {
@@ -111,14 +101,6 @@ in
           {
             name = "zsh";
             priority = 250;
-          }
-          {
-            name = "calc";
-            priority = 150;
-          }
-          {
-            name = "emoji";
-            priority = 100;
           }
         ];
       };

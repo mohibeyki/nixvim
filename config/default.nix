@@ -8,16 +8,13 @@
 
     ./plug/colorscheme/colorscheme.nix
 
-    ./plug/completion/blink.nix
     ./plug/completion/cmp.nix
     ./plug/completion/copilot-cmp.nix
-    ./plug/completion/schemastore.nix
+    ./plug/completion/lspkind.nix
 
     ./plug/git/gitblame.nix
-    ./plug/git/gitlinker.nix
     ./plug/git/gitsigns.nix
     ./plug/git/lazygit.nix
-    ./plug/git/worktree.nix
 
     ./plug/lsp/conform.nix
     ./plug/lsp/fidget.nix
@@ -43,24 +40,16 @@
     ./plug/ui/smart-splits.nix
     ./plug/ui/telescope.nix
 
-    ./plug/utils/auto-session.nix
-    ./plug/utils/colorizer.nix
-    ./plug/utils/comment-box.nix
     ./plug/utils/comment.nix
+    ./plug/utils/comment-box.nix
     ./plug/utils/flash.nix
-    ./plug/utils/grapple.nix
-    ./plug/utils/hardtime.nix
-    ./plug/utils/harpoon.nix
     ./plug/utils/illuminate.nix
     ./plug/utils/markview.nix
-    ./plug/utils/obsidian.nix
     ./plug/utils/oil.nix
     ./plug/utils/spectre.nix
-    ./plug/utils/trunk.nix
     ./plug/utils/ufo.nix
     ./plug/utils/undotree.nix
     ./plug/utils/whichkey.nix
-    ./plug/utils/yaml-companion.nix
   ];
   options = {
     theme = lib.mkOption {

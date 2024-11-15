@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       notify = {
-        enabled = false;
+        enabled = true;
         view = "notify";
       };
       messages = {
@@ -12,11 +12,16 @@
       };
       lsp = {
         message = {
-          enabled = false;
+          enabled = true;
         };
         progress = {
-          enabled = false;
+          enabled = true;
           view = "mini";
+        };
+        override = {
+          "vim.lsp.util.convert_input_to_markdown_lines" = true;
+          "vim.lsp.util.stylize_markdown" = true;
+          "cmp.entry.get_documentation" = true;
         };
       };
       popupmenu = {

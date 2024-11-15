@@ -89,15 +89,15 @@
       };
     }
 
-    # {
-    #   mode = "n";
-    #   key = "gD";
-    #   action = "<cmd>Lspsaga show_line_diagnostics<CR>";
-    #   options = {
-    #     desc = "Goto Declaration";
-    #     silent = true;
-    #   };
-    # }
+    {
+      mode = "n";
+      key = "gD";
+      action = "<cmd>Lspsaga show_line_diagnostics<CR>";
+      options = {
+        desc = "Goto Declaration";
+        silent = true;
+      };
+    }
 
     {
       mode = "n";
