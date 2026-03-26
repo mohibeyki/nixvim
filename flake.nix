@@ -19,9 +19,21 @@
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = import systems;
 
-      imports = [
-        ./nix/nixvim
-        ./nix/formatter
-      ];
+      perSystem =
+        { pkgs, system, ... }:
+        let
+          nixvim' = inputs.nixvim.legacyPackages.${system};
+          nvim = nixvim'.makeNixvimWithModule {
+            inherit pkgs;
+            module = ./modules;
+          };
+        in
+        {
+          packages = {
+            default = nvim;
+            nixvim = nvim;
+          };
+          formatter = pkgs.nixfmt-rfc-style;
+        };
     };
 }
