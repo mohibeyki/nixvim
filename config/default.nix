@@ -4,53 +4,53 @@
     ./autocommands.nix
     ./keys.nix
     ./sets.nix
-    ./highlight.nix
 
-    ./plug/colorscheme/colorscheme.nix
+    ./plugins/colorscheme/colorscheme.nix
 
-    ./plug/completion/cmp.nix
-    ./plug/completion/copilot-cmp.nix
-    ./plug/completion/lspkind.nix
+    ./plugins/completion/cmp.nix
+    ./plugins/completion/copilot-cmp.nix
+    ./plugins/completion/lspkind.nix
 
-    ./plug/git/gitblame.nix
-    ./plug/git/gitsigns.nix
-    ./plug/git/lazygit.nix
+    ./plugins/git/gitblame.nix
+    ./plugins/git/gitsigns.nix
+    ./plugins/git/lazygit.nix
 
-    ./plug/lsp/conform.nix
-    ./plug/lsp/fidget.nix
-    ./plug/lsp/lsp.nix
-    ./plug/lsp/lspsaga.nix
-    ./plug/lsp/none-ls.nix
-    ./plug/lsp/trouble.nix
+    ./plugins/lsp/conform.nix
+    ./plugins/lsp/fidget.nix
+    ./plugins/lsp/lsp.nix
+    ./plugins/lsp/lspsaga.nix
+    ./plugins/lsp/none-ls.nix
+    ./plugins/lsp/trouble.nix
 
-    ./plug/mini
+    ./plugins/mini
 
-    ./plug/snippets/luasnip.nix
+    ./plugins/snippets/luasnip.nix
 
-    ./plug/treesitter/treesitter-context.nix
-    ./plug/treesitter/treesitter-textobjects.nix
-    ./plug/treesitter/treesitter.nix
+    ./plugins/treesitter/treesitter-context.nix
+    ./plugins/treesitter/treesitter-textobjects.nix
+    ./plugins/treesitter/treesitter.nix
 
-    ./plug/ui/bufferline.nix
-    ./plug/ui/dressing.nix
-    ./plug/ui/indent-blankline.nix
-    ./plug/ui/lualine.nix
-    ./plug/ui/noice.nix
-    ./plug/ui/nvim-notify.nix
-    ./plug/ui/smart-splits.nix
-    ./plug/ui/telescope.nix
+    ./plugins/ui/bufferline.nix
+    ./plugins/ui/dressing.nix
+    ./plugins/ui/indent-blankline.nix
+    ./plugins/ui/lualine.nix
+    ./plugins/ui/noice.nix
+    ./plugins/ui/nvim-notify.nix
+    ./plugins/ui/smart-splits.nix
+    ./plugins/ui/telescope.nix
 
-    ./plug/utils/comment.nix
-    ./plug/utils/comment-box.nix
-    ./plug/utils/flash.nix
-    ./plug/utils/illuminate.nix
-    ./plug/utils/markview.nix
-    ./plug/utils/oil.nix
-    ./plug/utils/spectre.nix
-    ./plug/utils/ufo.nix
-    ./plug/utils/undotree.nix
-    ./plug/utils/whichkey.nix
+    ./plugins/utils/comment.nix
+    ./plugins/utils/comment-box.nix
+    ./plugins/utils/flash.nix
+    ./plugins/utils/illuminate.nix
+    ./plugins/utils/markview.nix
+    ./plugins/utils/oil.nix
+    ./plugins/utils/spectre.nix
+    ./plugins/utils/ufo.nix
+    ./plugins/utils/undotree.nix
+    ./plugins/utils/whichkey.nix
   ];
+
   options = {
     theme = lib.mkOption {
       default = lib.mkDefault "tokyonight";
@@ -66,19 +66,13 @@
         "aquarium"
         "gruvbox"
         "oxocarbon"
-      ];
-    };
-    assistant = lib.mkOption {
-      default = "copilot";
-      type = lib.types.enum [
-        "copilot"
-        "none"
+        "rose-pine"
       ];
     };
   };
+
   config = {
-    # The base16 theme to use
-    theme = "tokyonight";
+    theme = "rose-pine";
     extraConfigLua = ''
       _G.theme = "${config.theme}"
     '';

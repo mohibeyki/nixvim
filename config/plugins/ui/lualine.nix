@@ -1,31 +1,8 @@
-{ config, ... }:
-let
-  colors = import ../../colors/${config.theme}.nix { };
-in
 {
   plugins.lualine = {
     enable = true;
     settings = {
       options = {
-        theme = {
-          normal = {
-            a = {
-              bg = "#nil";
-            };
-            b = {
-              bg = "nil";
-            };
-            c = {
-              bg = "nil";
-            };
-            z = {
-              bg = "nil";
-            };
-            y = {
-              bg = "nil";
-            };
-          };
-        };
         globalstatus = true;
         disabled_filetypes = {
           statusline = [
@@ -46,10 +23,6 @@ in
           {
             __unkeyed = "mode";
             fmt = "string.lower";
-            color = {
-              fg = colors.base04;
-              bg = "nil";
-            };
             separator.left = "";
             separator.right = "";
           }
@@ -58,10 +31,6 @@ in
           {
             __unkeyed = "branch";
             icon.__unkeyed = "";
-            color = {
-              fg = colors.base04;
-              bg = "nil";
-            };
             separator.left = "";
             separator.right = "";
           }
@@ -79,10 +48,6 @@ in
               warn = " ";
               info = " ";
               hint = "󰝶 ";
-            };
-            color = {
-              fg = colors.base08;
-              bg = "nil";
             };
             separator.left = "";
             separator.right = "";
@@ -103,10 +68,6 @@ in
               readonly = "👁️";
               unnamed = "";
             };
-            color = {
-              fg = colors.base05;
-              bg = "nil";
-            };
             separator.left = "";
             separator.right = "";
           }
@@ -114,10 +75,6 @@ in
         lualine_z = [
           {
             __unkeyed = "location";
-            color = {
-              fg = colors.base0B;
-              bg = "nil";
-            };
             separator.left = "";
             separator.right = "";
           }
