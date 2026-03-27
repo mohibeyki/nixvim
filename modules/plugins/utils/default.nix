@@ -9,9 +9,7 @@
     ./mini.nix
     ./persistence.nix
     ./snacks.nix
-    ./spectre.nix
     ./todo-comments.nix
-    ./ufo.nix
     ./undotree.nix
     ./whichkey.nix
     ./yanky.nix
