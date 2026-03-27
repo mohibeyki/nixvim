@@ -1,30 +1,40 @@
-{ pkgs, ... }:
 {
-  filetype.extension.liq = "liquidsoap";
+  pkgs,
+  config,
+  lib,
+  ...
+}:
+let
+  cfg = config.plugins.treesitter;
 
-  plugins.treesitter = {
-    enable = true;
+  # Get treesitter grammars from enabled languages (handles both string and list)
+  enabledGrammars = lib.concatMap (
+    v: if lib.isList v.treesitter then v.treesitter else [ v.treesitter ]
+  ) (lib.attrValues (lib.filterAttrs (_: v: v.treesitter != null) config.languages.enabledConfigs));
 
-    settings = {
-      indent = {
-        enable = true;
-      };
-      highlight = {
-        enable = true;
-      };
-    };
-
-    folding = true;
-    languageRegister.liq = "liquidsoap";
-    nixvimInjections = true;
-    grammarPackages = pkgs.vimPlugins.nvim-treesitter.allGrammars;
+  # If useAllGrammars is false, only install grammars for enabled languages
+  # Otherwise use all grammars
+  grammarPackages =
+    if cfg.useAllGrammars then
+      pkgs.vimPlugins.nvim-treesitter.allGrammars
+    else
+      lib.filter (pkg: lib.elem pkg.pname enabledGrammars) pkgs.vimPlugins.nvim-treesitter.allGrammars;
+in
+{
+  options.plugins.treesitter.useAllGrammars = lib.mkOption {
+    type = lib.types.bool;
+    default = true;
+    description = "Install all treesitter grammars. If false, only installs grammars for enabled languages.";
   };
 
-  extraConfigLua = ''
-    local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-
-    parser_config.liquidsoap = {
-      filetype = "liquidsoap",
-    }
-  '';
+  config.plugins.treesitter = {
+    enable = true;
+    settings = {
+      indent.enable = true;
+      highlight.enable = true;
+    };
+    folding.enable = true;
+    nixvimInjections = true;
+    inherit grammarPackages;
+  };
 }

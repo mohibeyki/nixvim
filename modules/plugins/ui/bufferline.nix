@@ -10,6 +10,7 @@
       };
     };
   };
+
   keymaps = lib.mkIf config.plugins.bufferline.enable [
     {
       mode = "n";
@@ -50,9 +51,18 @@
     {
       mode = "n";
       key = "<leader>bd";
-      action = "<cmd>bdelete<cr>";
+      action = "<cmd>lua Snacks.bufdelete()<cr>";
       options = {
         desc = "Delete buffer";
+      };
+    }
+
+    {
+      mode = "n";
+      key = "<leader>bD";
+      action = "<cmd>lua Snacks.bufdelete.other()<cr>";
+      options = {
+        desc = "Delete other buffers";
       };
     }
 

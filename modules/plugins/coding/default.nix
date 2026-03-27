@@ -1,5 +1,5 @@
 {
   imports = [
-    ./luasnip.nix
+    ./ts-comments.nix
   ];
 }

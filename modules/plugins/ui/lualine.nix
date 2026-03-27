@@ -7,8 +7,6 @@
         disabled_filetypes = {
           statusline = [
             "dashboard"
-            "alpha"
-            "starter"
           ];
         };
       };

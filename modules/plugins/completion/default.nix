@@ -1,6 +1,5 @@
 {
   imports = [
-    ./cmp.nix
-    ./lspkind.nix
+    ./blink.nix
   ];
 }
