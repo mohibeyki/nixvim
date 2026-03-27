@@ -55,6 +55,16 @@
               action = "<cmd>lua Snacks.picker.files({ cwd = vim.fn.stdpath('config') })<cr>";
             }
             {
+              icon = "  ";
+              key = "s";
+              desc = "Restore Session";
+              action.__raw = ''
+                function()
+                  require("persistence").load()
+                end
+              '';
+            }
+            {
               icon = " ";
               key = "q";
               desc = "Quit";
