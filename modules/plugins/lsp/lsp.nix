@@ -131,13 +131,18 @@ in
   ];
 
   extraConfigLua = ''
-    -- Rounded borders for LSP handlers (no nixvim option for this)
-    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-      vim.lsp.handlers.hover, { border = "rounded" }
-    )
-    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-      vim.lsp.handlers.signature_help, { border = "rounded" }
-    )
+    -- Rounded borders for LSP handlers (Neovim 0.11+ API)
+    vim.lsp.handlers["textDocument/hover"] = function(err, result, ctx, config)
+      config = config or {}
+      config.border = config.border or "rounded"
+      return vim.lsp.handlers.hover(err, result, ctx, config)
+    end
+
+    vim.lsp.handlers["textDocument/signatureHelp"] = function(err, result, ctx, config)
+      config = config or {}
+      config.border = config.border or "rounded"
+      return vim.lsp.handlers.signature_help(err, result, ctx, config)
+    end
 
     -- LSP progress autocmd for statusline (custom logic, must be Lua)
     vim.api.nvim_create_autocmd("LspProgress", {

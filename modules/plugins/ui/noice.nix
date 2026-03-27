@@ -3,12 +3,12 @@
     enable = true;
     settings = {
       notify = {
-        enabled = false;
+        enabled = true;
         view = "notify";
       };
       messages = {
         enabled = true;
-        view = "mini";
+        view = "notify";
       };
       lsp = {
         message = {
@@ -59,7 +59,7 @@
               ":%s*s!%s*"
               ":%s*s/%s*"
             ];
-            icon = "";
+            icon = "󰍉";
             lang = "regex";
           };
           replace = {
@@ -71,7 +71,7 @@
               ":%s*s!%w*!%s*"
               ":%s*s/%w*/%s*"
             ];
-            icon = "󱞪";
+            icon = "󰛔";
             lang = "regex";
           };
           range = {
@@ -83,7 +83,7 @@
               ":%s*s!%w*!%w*!%s*"
               ":%s*s/%w*/%w*/%s*"
             ];
-            icon = "";
+            icon = "󱇨";
             lang = "regex";
           };
         };

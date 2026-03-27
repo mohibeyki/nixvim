@@ -28,7 +28,7 @@
         lualine_b = [
           {
             __unkeyed = "branch";
-            icon.__unkeyed = "";
+            icon.__unkeyed = "󰘬";
             separator.left = "";
             separator.right = "";
           }
@@ -42,10 +42,10 @@
           {
             __unkeyed = "diagnostic";
             symbols = {
-              error = " ";
-              warn = " ";
-              info = " ";
-              hint = "󰝶 ";
+              error = "󰅙 ";
+              warn = "󰀨 ";
+              info = "󱇭 ";
+              hint = "󰛨 ";
             };
             separator.left = "";
             separator.right = "";
@@ -62,8 +62,8 @@
           {
             __unkeyed = "filename";
             symbols = {
-              modified = "";
-              readonly = "👁️";
+              modified = "󱇨";
+              readonly = "󰍁";
               unnamed = "";
             };
             separator.left = "";
