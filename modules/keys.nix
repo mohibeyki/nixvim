@@ -2,7 +2,58 @@
   globals.mapleader = " ";
 
   keymaps = [
-    # Clear search with <Esc> (LazyVim style)
+    {
+      mode = [
+        "n"
+        "x"
+      ];
+      key = "j";
+      action = "v:count == 0 ? 'gj' : 'j'";
+      options = {
+        desc = "Down";
+        expr = true;
+        silent = true;
+      };
+    }
+    {
+      mode = [
+        "n"
+        "x"
+      ];
+      key = "<Down>";
+      action = "v:count == 0 ? 'gj' : 'j'";
+      options = {
+        desc = "Down";
+        expr = true;
+        silent = true;
+      };
+    }
+    {
+      mode = [
+        "n"
+        "x"
+      ];
+      key = "k";
+      action = "v:count == 0 ? 'gk' : 'k'";
+      options = {
+        desc = "Up";
+        expr = true;
+        silent = true;
+      };
+    }
+    {
+      mode = [
+        "n"
+        "x"
+      ];
+      key = "<Up>";
+      action = "v:count == 0 ? 'gk' : 'k'";
+      options = {
+        desc = "Up";
+        expr = true;
+        silent = true;
+      };
+    }
     {
       mode = [
         "i"
@@ -10,13 +61,20 @@
         "s"
       ];
       key = "<Esc>";
-      action = "<cmd>nohl<CR><Esc>";
+      action.__raw = ''
+        function()
+          vim.cmd("noh")
+          if vim.snippet and vim.snippet.active and vim.snippet.active({ direction = 1 }) then
+            pcall(vim.snippet.stop)
+          end
+          return "<Esc>"
+        end
+      '';
       options = {
         desc = "Escape and Clear hlsearch";
+        expr = true;
       };
     }
-
-    # Save file
     {
       mode = [
         "i"
@@ -27,192 +85,368 @@
       key = "<C-s>";
       action = "<cmd>w<cr><esc>";
       options = {
+        desc = "Save File";
         silent = true;
-        desc = "Save file";
       };
     }
-
-    # Quit
     {
       mode = "n";
       key = "<leader>qq";
-      action = "<cmd>quitall<cr><esc>";
+      action = "<cmd>qa<cr>";
       options = {
+        desc = "Quit All";
         silent = true;
-        desc = "Quit all";
       };
     }
-
-    # UI toggles
     {
       mode = "n";
-      key = "<leader>ul";
-      action = ":lua ToggleLineNumber()<cr>";
-      options = {
-        silent = true;
-        desc = "Toggle Line Numbers";
-      };
+      key = "<leader>ur";
+      action = "<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>";
+      options.desc = "Redraw / Clear hlsearch / Diff Update";
     }
-
-    {
-      mode = "n";
-      key = "<leader>uL";
-      action = ":lua ToggleRelativeLineNumber()<cr>";
-      options = {
-        silent = true;
-        desc = "Toggle Relative Line Numbers";
-      };
-    }
-
-    {
-      mode = "n";
-      key = "<leader>uw";
-      action = ":lua ToggleWrap()<cr>";
-      options = {
-        silent = true;
-        desc = "Toggle Line Wrap";
-      };
-    }
-
-    # Move lines in visual mode
-    {
-      mode = "v";
-      key = "J";
-      action = ":m '>+1<CR>gv=gv";
-      options = {
-        desc = "Move selected lines down";
-      };
-    }
-
-    {
-      mode = "v";
-      key = "K";
-      action = ":m '<-2<CR>gv=gv";
-      options = {
-        desc = "Move selected lines up";
-      };
-    }
-
-    # Keep cursor centered
-    {
-      mode = "n";
-      key = "J";
-      action = "mzJ`z";
-      options = {
-        desc = "Join lines and keep cursor position";
-      };
-    }
-
-    {
-      mode = "n";
-      key = "<C-d>";
-      action = "<C-d>zz";
-      options = {
-        desc = "Scroll down and center cursor";
-      };
-    }
-
-    {
-      mode = "n";
-      key = "<C-u>";
-      action = "<C-u>zz";
-      options = {
-        desc = "Scroll up and center cursor";
-      };
-    }
-
-    {
-      mode = "n";
-      key = "n";
-      action = "nzzzv";
-      options = {
-        desc = "Next search result and center";
-      };
-    }
-
-    {
-      mode = "n";
-      key = "N";
-      action = "Nzzzv";
-      options = {
-        desc = "Previous search result and center";
-      };
-    }
-
-    # Delete to void register (preserve clipboard)
     {
       mode = [
         "n"
-        "v"
+        "x"
+        "o"
       ];
-      key = "<leader>D";
-      action = ''"_d'';
+      key = "n";
+      action = "'Nn'[v:searchforward].(mode() ==# 'n' ? 'zv' : '')";
       options = {
-        desc = "Delete to void register";
+        desc = "Next Search Result";
+        expr = true;
       };
     }
-
-    # Escape in insert mode
+    {
+      mode = [
+        "n"
+        "x"
+        "o"
+      ];
+      key = "N";
+      action = "'nN'[v:searchforward].(mode() ==# 'n' ? 'zv' : '')";
+      options = {
+        desc = "Prev Search Result";
+        expr = true;
+      };
+    }
     {
       mode = "i";
-      key = "<C-c>";
-      action = "<Esc>";
+      key = ",";
+      action = ",<c-g>u";
+    }
+    {
+      mode = "i";
+      key = ".";
+      action = ".<c-g>u";
+    }
+    {
+      mode = "i";
+      key = ";";
+      action = ";<c-g>u";
+    }
+    {
+      mode = "n";
+      key = "<leader>K";
+      action = "<cmd>norm! K<cr>";
+      options.desc = "Keywordprg";
+    }
+    {
+      mode = "x";
+      key = "<";
+      action = "<gv";
+    }
+    {
+      mode = "x";
+      key = ">";
+      action = ">gv";
+    }
+    {
+      mode = "n";
+      key = "gco";
+      action = "o<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>";
+      options.desc = "Add Comment Below";
+    }
+    {
+      mode = "n";
+      key = "gcO";
+      action = "O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>";
+      options.desc = "Add Comment Above";
+    }
+    {
+      mode = "n";
+      key = "<leader>fn";
+      action = "<cmd>enew<cr>";
+      options.desc = "New File";
+    }
+    {
+      mode = "n";
+      key = "]e";
+      action.__raw = ''
+        function()
+          vim.diagnostic.jump({ count = vim.v.count1, severity = vim.diagnostic.severity.ERROR, float = true })
+        end
+      '';
+      options.desc = "Next Error";
+    }
+    {
+      mode = "n";
+      key = "[e";
+      action.__raw = ''
+        function()
+          vim.diagnostic.jump({ count = -vim.v.count1, severity = vim.diagnostic.severity.ERROR, float = true })
+        end
+      '';
+      options.desc = "Prev Error";
+    }
+    {
+      mode = "n";
+      key = "]w";
+      action.__raw = ''
+        function()
+          vim.diagnostic.jump({ count = vim.v.count1, severity = vim.diagnostic.severity.WARN, float = true })
+        end
+      '';
+      options.desc = "Next Warning";
+    }
+    {
+      mode = "n";
+      key = "[w";
+      action.__raw = ''
+        function()
+          vim.diagnostic.jump({ count = -vim.v.count1, severity = vim.diagnostic.severity.WARN, float = true })
+        end
+      '';
+      options.desc = "Prev Warning";
+    }
+    {
+      mode = "n";
+      key = "<leader>gL";
+      action = "<cmd>lua Snacks.picker.git_log()<cr>";
+      options.desc = "Git Log (cwd)";
+    }
+    {
+      mode = "n";
+      key = "<leader>gb";
+      action = "<cmd>lua Snacks.picker.git_log_line()<cr>";
+      options.desc = "Git Blame Line";
+    }
+    {
+      mode = "n";
+      key = "<leader>gf";
+      action = "<cmd>lua Snacks.picker.git_log_file()<cr>";
+      options.desc = "Git Current File History";
+    }
+    {
+      mode = "n";
+      key = "<leader>gl";
+      action.__raw = ''
+        function()
+          Snacks.picker.git_log({ cwd = Snacks.git.get_root() })
+        end
+      '';
+      options.desc = "Git Log";
+    }
+    {
+      mode = [
+        "n"
+        "x"
+      ];
+      key = "<leader>gB";
+      action.__raw = ''
+        function()
+          Snacks.gitbrowse()
+        end
+      '';
+      options.desc = "Git Browse (open)";
+    }
+    {
+      mode = [
+        "n"
+        "x"
+      ];
+      key = "<leader>gY";
+      action.__raw = ''
+        function()
+          Snacks.gitbrowse({
+            open = function(url)
+              vim.fn.setreg("+", url)
+            end,
+            notify = false,
+          })
+        end
+      '';
+      options.desc = "Git Browse (copy)";
+    }
+    {
+      mode = "n";
+      key = "<leader>ui";
+      action = "<cmd>lua vim.show_pos()<cr>";
+      options.desc = "Inspect Pos";
+    }
+    {
+      mode = "n";
+      key = "<leader>uI";
+      action.__raw = ''
+        function()
+          vim.treesitter.inspect_tree()
+          vim.api.nvim_input("I")
+        end
+      '';
+      options.desc = "Inspect Tree";
+    }
+    {
+      mode = "n";
+      key = "<leader>fT";
+      action = "<cmd>lua Snacks.terminal()<cr>";
+      options.desc = "Terminal (cwd)";
+    }
+    {
+      mode = "n";
+      key = "<leader>ft";
+      action.__raw = ''
+        function()
+          Snacks.terminal(nil, { cwd = Snacks.git.get_root() or vim.fn.getcwd() })
+        end
+      '';
+      options.desc = "Terminal (Root Dir)";
+    }
+    {
+      mode = [
+        "n"
+        "t"
+      ];
+      key = "<c-/>";
+      action.__raw = ''
+        function()
+          Snacks.terminal.focus(nil, { cwd = Snacks.git.get_root() or vim.fn.getcwd() })
+        end
+      '';
+      options.desc = "Terminal (Root Dir)";
+    }
+    {
+      mode = [
+        "n"
+        "t"
+      ];
+      key = "<c-_>";
+      action.__raw = ''
+        function()
+          Snacks.terminal.focus(nil, { cwd = Snacks.git.get_root() or vim.fn.getcwd() })
+        end
+      '';
+      options.desc = "which_key_ignore";
+    }
+    {
+      mode = "n";
+      key = "<leader>-";
+      action = "<C-W>s";
       options = {
-        desc = "Exit insert mode";
+        desc = "Split Window Below";
+        remap = true;
       };
     }
-
-    # Previous/Next buffer
+    {
+      mode = "n";
+      key = "<leader>|";
+      action = "<C-W>v";
+      options = {
+        desc = "Split Window Right";
+        remap = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>wd";
+      action = "<C-W>c";
+      options = {
+        desc = "Delete Window";
+        remap = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader><tab>l";
+      action = "<cmd>tablast<cr>";
+      options.desc = "Last Tab";
+    }
+    {
+      mode = "n";
+      key = "<leader><tab>o";
+      action = "<cmd>tabonly<cr>";
+      options.desc = "Close Other Tabs";
+    }
+    {
+      mode = "n";
+      key = "<leader><tab>f";
+      action = "<cmd>tabfirst<cr>";
+      options.desc = "First Tab";
+    }
+    {
+      mode = "n";
+      key = "<leader><tab><tab>";
+      action = "<cmd>tabnew<cr>";
+      options.desc = "New Tab";
+    }
+    {
+      mode = "n";
+      key = "<leader><tab>]";
+      action = "<cmd>tabnext<cr>";
+      options.desc = "Next Tab";
+    }
+    {
+      mode = "n";
+      key = "<leader><tab>d";
+      action = "<cmd>tabclose<cr>";
+      options.desc = "Close Tab";
+    }
+    {
+      mode = "n";
+      key = "<leader><tab>[";
+      action = "<cmd>tabprevious<cr>";
+      options.desc = "Previous Tab";
+    }
+    {
+      mode = "n";
+      key = "<C-Up>";
+      action = "<cmd>resize +2<cr>";
+      options.desc = "Increase Window Height";
+    }
+    {
+      mode = "n";
+      key = "<C-Down>";
+      action = "<cmd>resize -2<cr>";
+      options.desc = "Decrease Window Height";
+    }
+    {
+      mode = "n";
+      key = "<C-Left>";
+      action = "<cmd>vertical resize -2<cr>";
+      options.desc = "Decrease Window Width";
+    }
+    {
+      mode = "n";
+      key = "<C-Right>";
+      action = "<cmd>vertical resize +2<cr>";
+      options.desc = "Increase Window Width";
+    }
     {
       mode = "n";
       key = "[b";
       action = "<cmd>bprevious<cr>";
-      options = {
-        desc = "Prev buffer";
-      };
+      options.desc = "Prev Buffer";
     }
-
     {
       mode = "n";
       key = "]b";
       action = "<cmd>bnext<cr>";
-      options = {
-        desc = "Next buffer";
-      };
+      options.desc = "Next Buffer";
     }
-
-    # Switch to other buffer
     {
       mode = "n";
       key = "<leader>`";
       action = "<cmd>e #<cr>";
-      options = {
-        desc = "Switch to Other Buffer";
-      };
+      options.desc = "Switch to Other Buffer";
     }
   ];
-
-  extraConfigLua = ''
-    function ToggleLineNumber()
-      if vim.wo.number then
-        vim.wo.number = false
-      else
-        vim.wo.number = true
-        vim.wo.relativenumber = false
-      end
-    end
-
-    function ToggleRelativeLineNumber()
-      if vim.wo.relativenumber then
-        vim.wo.relativenumber = false
-      else
-        vim.wo.relativenumber = true
-        vim.wo.number = false
-      end
-    end
-
-    function ToggleWrap()
-      vim.wo.wrap = not vim.wo.wrap
-    end
-  '';
 }

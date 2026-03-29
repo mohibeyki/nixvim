@@ -57,5 +57,13 @@
         desc = "Todo";
       };
     }
+    {
+      mode = "n";
+      key = "<leader>sT";
+      action = "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>";
+      options = {
+        desc = "Todo/Fix/Fixme";
+      };
+    }
   ];
 }

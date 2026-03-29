@@ -14,28 +14,10 @@
   keymaps = lib.mkIf config.plugins.bufferline.enable [
     {
       mode = "n";
-      key = "<Tab>";
-      action = "<cmd>BufferLineCycleNext<cr>";
-      options = {
-        desc = "Cycle to next buffer";
-      };
-    }
-
-    {
-      mode = "n";
-      key = "<S-Tab>";
-      action = "<cmd>BufferLineCyclePrev<cr>";
-      options = {
-        desc = "Cycle to previous buffer";
-      };
-    }
-
-    {
-      mode = "n";
       key = "<S-l>";
       action = "<cmd>BufferLineCycleNext<cr>";
       options = {
-        desc = "Cycle to next buffer";
+        desc = "Next Buffer";
       };
     }
 
@@ -44,7 +26,23 @@
       key = "<S-h>";
       action = "<cmd>BufferLineCyclePrev<cr>";
       options = {
-        desc = "Cycle to previous buffer";
+        desc = "Prev Buffer";
+      };
+    }
+    {
+      mode = "n";
+      key = "[B";
+      action = "<cmd>BufferLineMovePrev<cr>";
+      options = {
+        desc = "Move buffer prev";
+      };
+    }
+    {
+      mode = "n";
+      key = "]B";
+      action = "<cmd>BufferLineMoveNext<cr>";
+      options = {
+        desc = "Move buffer next";
       };
     }
 
@@ -60,9 +58,9 @@
     {
       mode = "n";
       key = "<leader>bD";
-      action = "<cmd>lua Snacks.bufdelete.other()<cr>";
+      action = "<cmd>:bd<cr>";
       options = {
-        desc = "Delete other buffers";
+        desc = "Delete Buffer and Window";
       };
     }
 
@@ -117,6 +115,14 @@
       action = "<Cmd>BufferLineGroupClose ungrouped<CR>";
       options = {
         desc = "Delete non-pinned buffers";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>bj";
+      action = "<cmd>BufferLinePick<cr>";
+      options = {
+        desc = "Pick Buffer";
       };
     }
   ];

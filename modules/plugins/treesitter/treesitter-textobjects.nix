@@ -23,34 +23,27 @@
       move = {
         enable = true;
         gotoNextStart = {
-          "]m" = "@function.outer";
-          "]]" = "@class.outer";
+          "]f" = "@function.outer";
+          "]c" = "@class.outer";
+          "]a" = "@parameter.inner";
         };
 
         gotoNextEnd = {
-          "]M" = "@function.outer";
-          "][" = "@class.outer";
+          "]F" = "@function.outer";
+          "]C" = "@class.outer";
+          "]A" = "@parameter.inner";
         };
 
         gotoPreviousStart = {
-          "[m" = "@function.outer";
-          "[[" = "@class.outer";
+          "[f" = "@function.outer";
+          "[c" = "@class.outer";
+          "[a" = "@parameter.inner";
         };
 
         gotoPreviousEnd = {
-          "[M" = "@function.outer";
-          "[]" = "@class.outer";
-        };
-      };
-
-      swap = {
-        enable = true;
-        swapNext = {
-          "<leader>a" = "@parameters.inner";
-        };
-
-        swapPrevious = {
-          "<leader>A" = "@parameter.outer";
+          "[F" = "@function.outer";
+          "[C" = "@class.outer";
+          "[A" = "@parameter.inner";
         };
       };
     };

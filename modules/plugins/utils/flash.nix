@@ -66,5 +66,34 @@
         desc = "Treesitter Search";
       };
     }
+    {
+      mode = "c";
+      key = "<C-s>";
+      action = "<cmd>lua require('flash').toggle()<cr>";
+      options = {
+        desc = "Toggle Flash Search";
+      };
+    }
+    {
+      mode = [
+        "n"
+        "o"
+        "x"
+      ];
+      key = "<C-Space>";
+      action.__raw = ''
+        function()
+          require("flash").treesitter({
+            actions = {
+              ["<c-space>"] = "next",
+              ["<BS>"] = "prev",
+            },
+          })
+        end
+      '';
+      options = {
+        desc = "Treesitter Incremental Selection";
+      };
+    }
   ];
 }

@@ -90,4 +90,89 @@
       };
     };
   };
+
+  keymaps = [
+    {
+      mode = "n";
+      key = "<leader>sn";
+      action = "";
+      options.desc = "+noice";
+    }
+    {
+      mode = "c";
+      key = "<S-Enter>";
+      action = ''<cmd>lua require("noice").redirect(vim.fn.getcmdline())<cr>'';
+      options.desc = "Redirect Cmdline";
+    }
+    {
+      mode = "n";
+      key = "<leader>snl";
+      action = ''<cmd>lua require("noice").cmd("last")<cr>'';
+      options.desc = "Noice Last Message";
+    }
+    {
+      mode = "n";
+      key = "<leader>snh";
+      action = ''<cmd>lua require("noice").cmd("history")<cr>'';
+      options.desc = "Noice History";
+    }
+    {
+      mode = "n";
+      key = "<leader>sna";
+      action = ''<cmd>lua require("noice").cmd("all")<cr>'';
+      options.desc = "Noice All";
+    }
+    {
+      mode = "n";
+      key = "<leader>snd";
+      action = ''<cmd>lua require("noice").cmd("dismiss")<cr>'';
+      options.desc = "Dismiss All";
+    }
+    {
+      mode = "n";
+      key = "<leader>snt";
+      action = ''<cmd>lua require("noice").cmd("pick")<cr>'';
+      options.desc = "Noice Picker (Telescope/FzfLua)";
+    }
+    {
+      mode = [
+        "i"
+        "n"
+        "s"
+      ];
+      key = "<C-f>";
+      action.__raw = ''
+        function()
+          if not require("noice.lsp").scroll(4) then
+            return "<C-f>"
+          end
+        end
+      '';
+      options = {
+        desc = "Scroll Forward";
+        expr = true;
+        silent = true;
+      };
+    }
+    {
+      mode = [
+        "i"
+        "n"
+        "s"
+      ];
+      key = "<C-b>";
+      action.__raw = ''
+        function()
+          if not require("noice.lsp").scroll(-4) then
+            return "<C-b>"
+          end
+        end
+      '';
+      options = {
+        desc = "Scroll Backward";
+        expr = true;
+        silent = true;
+      };
+    }
+  ];
 }

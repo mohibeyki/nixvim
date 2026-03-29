@@ -29,20 +29,6 @@
     };
   };
   keymaps = lib.mkIf config.plugins.gitsigns.enable [
-    # Hunks group (shown in which-key)
-    {
-      mode = [
-        "n"
-        "v"
-      ];
-      key = "<leader>gh";
-      action = "gitsigns";
-      options = {
-        silent = true;
-        desc = "+hunks";
-      };
-    }
-
     # Stage/reset hunks
     {
       mode = [
@@ -73,10 +59,10 @@
     {
       mode = "n";
       key = "<leader>ghp";
-      action = "<cmd>Gitsigns preview_hunk<CR>";
+      action = "<cmd>Gitsigns preview_hunk_inline<CR>";
       options = {
         silent = true;
-        desc = "Preview Hunk";
+        desc = "Preview Hunk Inline";
       };
     }
 
@@ -137,7 +123,11 @@
     {
       mode = "n";
       key = "<leader>ghb";
-      action = "<cmd>Gitsigns blame_line<CR>";
+      action.__raw = ''
+        function()
+          require("gitsigns").blame_line({ full = true })
+        end
+      '';
       options = {
         silent = true;
         desc = "Blame Line";
@@ -148,12 +138,12 @@
       key = "<leader>ghB";
       action.__raw = ''
         function()
-          require("gitsigns").blame_line({ full = true })
+          require("gitsigns").blame()
         end
       '';
       options = {
         silent = true;
-        desc = "Blame Line (full)";
+        desc = "Blame Buffer";
       };
     }
 
@@ -192,5 +182,55 @@
         desc = "Prev Hunk";
       };
     }
+    {
+      mode = "n";
+      key = "]H";
+      action.__raw = ''
+        function()
+          require("gitsigns").nav_hunk("last")
+        end
+      '';
+      options = {
+        silent = true;
+        desc = "Last Hunk";
+      };
+    }
+    {
+      mode = "n";
+      key = "[H";
+      action.__raw = ''
+        function()
+          require("gitsigns").nav_hunk("first")
+        end
+      '';
+      options = {
+        silent = true;
+        desc = "First Hunk";
+      };
+    }
+    {
+      mode = [
+        "o"
+        "x"
+      ];
+      key = "ih";
+      action = ":<C-U>Gitsigns select_hunk<CR>";
+      options = {
+        silent = true;
+        desc = "GitSigns Select Hunk";
+      };
+    }
   ];
+
+  extraConfigLua = ''
+    Snacks.toggle({
+      name = "Git Signs",
+      get = function()
+        return require("gitsigns.config").config.signcolumn
+      end,
+      set = function(state)
+        require("gitsigns").toggle_signs(state)
+      end,
+    }):map("<leader>uG")
+  '';
 }
