@@ -46,7 +46,7 @@
     # Display
     # --------------------------------------------------------------------------
     # Line numbers
-    number = false; # Don't show absolute line numbers
+    number = true; # Show absolute line numbers
     relativenumber = true; # Show relative line numbers
     cursorline = true; # Highlight current line
     signcolumn = "yes"; # Always show sign column
