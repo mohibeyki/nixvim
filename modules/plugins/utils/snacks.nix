@@ -18,7 +18,7 @@
             icon = "󰍉 ";
             key = "f";
             desc = "Find File";
-            action = "<cmd>lua Snacks.picker.files()<cr>";
+            action = "<cmd>lua Snacks.picker.files({ hidden = true })<cr>";
           }
           {
             icon = "󱪞 ";
@@ -42,7 +42,7 @@
             icon = "󰢻 ";
             key = "c";
             desc = "Config";
-            action = "<cmd>lua Snacks.picker.files({ cwd = vim.fn.stdpath('config') })<cr>";
+            action = "<cmd>lua Snacks.picker.files({ cwd = vim.fn.stdpath('config'), hidden = true })<cr>";
           }
           {
             icon = "󰦛 ";
@@ -124,7 +124,7 @@
     {
       mode = "n";
       key = "<leader><space>";
-      action = "<cmd>lua Snacks.picker.files()<CR>";
+      action = "<cmd>lua Snacks.picker.files({ hidden = true })<CR>";
       options = {
         desc = "Find Files (Root Dir)";
         silent = true;
@@ -181,7 +181,7 @@
     {
       mode = "n";
       key = "<leader>ff";
-      action = "<cmd>lua Snacks.picker.files()<CR>";
+      action = "<cmd>lua Snacks.picker.files({ hidden = true })<CR>";
       options.desc = "Find Files (Root Dir)";
     }
     {
@@ -189,7 +189,7 @@
       key = "<leader>fF";
       action.__raw = ''
         function()
-          Snacks.picker.files({ cwd = vim.fn.expand("%:p:h") })
+          Snacks.picker.files({ cwd = vim.fn.expand("%:p:h"), hidden = true })
         end
       '';
       options.desc = "Find Files (cwd)";
@@ -213,7 +213,7 @@
     {
       mode = "n";
       key = "<leader>fc";
-      action = "<cmd>lua Snacks.picker.files({ cwd = vim.fn.stdpath('config') })<CR>";
+      action = "<cmd>lua Snacks.picker.files({ cwd = vim.fn.stdpath('config'), hidden = true })<CR>";
       options.desc = "Find Config File";
     }
     {
