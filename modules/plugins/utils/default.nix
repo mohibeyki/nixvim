@@ -3,7 +3,6 @@
     ./comment.nix
     ./comment-box.nix
     ./flash.nix
-    ./grug-far.nix
     ./markview.nix
     ./mini.nix
     ./persistence.nix

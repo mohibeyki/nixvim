@@ -161,7 +161,7 @@ in
         end
 
         local function supports(method)
-          return client.supports_method(method, { bufnr = buf })
+          return client:supports_method(method, { bufnr = buf })
         end
 
         local code_actions = client.server_capabilities.codeActionProvider
