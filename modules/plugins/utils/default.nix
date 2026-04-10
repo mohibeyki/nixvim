@@ -1,7 +1,6 @@
 {
   imports = [
-    ./comment.nix
-    ./comment-box.nix
+./comment-box.nix
     ./markview.nix
     ./mini.nix
     ./persistence.nix

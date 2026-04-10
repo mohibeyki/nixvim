@@ -1,8 +1,15 @@
+{ pkgs, ... }:
 {
   plugins.snacks = {
     enable = true;
     settings = {
       bufdelete.enabled = true;
+
+      bigfile = {
+        enabled = true;
+        size = 1.5 * 1024 * 1024; # 1.5 MB
+        line_length = 1000;
+      };
 
       indent = {
         enabled = true;
@@ -11,6 +18,13 @@
           enabled = true;
           char = "╎";
         };
+      };
+
+      scope = {
+        enabled = true;
+        cursor = true;
+        hl = "SnacksIndentScope";
+        char = "│";
       };
 
       dashboard = {
@@ -73,7 +87,14 @@
         ];
       };
 
-      picker.enabled = true;
+      picker = {
+        enabled = true;
+        db.sqlite3_path = "${pkgs.sqlite.out}/lib/libsqlite3.so";
+      };
+
+      image = {
+        enabled = true;
+      };
 
       notifier = {
         enabled = true;

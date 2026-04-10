@@ -1,5 +1,17 @@
 { config, lib, ... }:
 {
+  filetype = {
+    extension = {
+      mdx = "markdown.mdx";
+      gotmpl = "gotmpl";
+    };
+    pattern = {
+      ".*docker-compose.*\\.ya?ml" = "yaml.docker-compose";
+      "\\.gitlab-ci\\.ya?ml" = "yaml.gitlab";
+      ".*/templates/.*\\.ya?ml" = "yaml.helm-values";
+    };
+  };
+
   plugins.lsp = {
     enable = true;
     inlayHints = true;

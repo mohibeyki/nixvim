@@ -7,9 +7,10 @@
 let
   cfg = config.plugins.treesitter;
 
-  enabledGrammars = lib.concatMap (
-    v: if lib.isList v.treesitter then v.treesitter else [ v.treesitter ]
-  ) (lib.attrValues (lib.filterAttrs (_: v: v.treesitter != null) config.languages.enabledConfigs));
+  enabledGrammars =
+    lib.concatMap (v: if lib.isList v.treesitter then v.treesitter else [ v.treesitter ]) (
+      lib.attrValues (lib.filterAttrs (_: v: v.treesitter != null) config.languages.enabledConfigs)
+    );
 
   grammarPackages =
     if cfg.useAllGrammars then
@@ -33,5 +34,6 @@ in
     folding.enable = true;
     nixvimInjections = true;
     inherit grammarPackages;
+    useAllGrammars = true;
   };
 }
