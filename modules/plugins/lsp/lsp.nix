@@ -120,15 +120,6 @@
       };
     }
     {
-      mode = "n";
-      key = "<leader>cO";
-      action = "<cmd>Outline<cr>";
-      options = {
-        desc = "Toggle Outline";
-        silent = true;
-      };
-    }
-    {
       mode = [
         "n"
         "v"

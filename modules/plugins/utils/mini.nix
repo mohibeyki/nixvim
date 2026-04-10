@@ -19,17 +19,6 @@
 
       bracketed = { };
 
-      diff = {
-        view = {
-          style = "sign";
-          signs = {
-            add = "▎";
-            change = "▎";
-            delete = "▎";
-          };
-        };
-      };
-
       hipatterns = {
         highlighters = {
           hex_color.__raw = ''
@@ -107,45 +96,6 @@
       '';
       options = {
         desc = "Visit Labels";
-        silent = true;
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>go";
-      action.__raw = ''
-        function()
-          require("mini.diff").toggle_overlay()
-        end
-      '';
-      options = {
-        desc = "Toggle Diff Overlay";
-        silent = true;
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>cw";
-      action.__raw = ''
-        function()
-          require("mini.trailspace").trim()
-        end
-      '';
-      options = {
-        desc = "Trim Trailing Whitespace";
-        silent = true;
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>cW";
-      action.__raw = ''
-        function()
-          require("mini.trailspace").trim_last_lines()
-        end
-      '';
-      options = {
-        desc = "Trim Trailing Empty Lines";
         silent = true;
       };
     }

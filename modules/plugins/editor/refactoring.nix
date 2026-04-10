@@ -121,10 +121,7 @@
       };
     }
     {
-      mode = [
-        "n"
-        "x"
-      ];
+      mode = "n";
       key = "<leader>rV";
       action.__raw = ''
         function()
@@ -146,22 +143,6 @@
       '';
       options = {
         desc = "Cleanup Debug Prints";
-        silent = true;
-      };
-    }
-    {
-      mode = [
-        "n"
-        "x"
-      ];
-      key = "<leader>rr";
-      action.__raw = ''
-        function()
-          require("refactoring").select_refactor()
-        end
-      '';
-      options = {
-        desc = "Select Refactor";
         silent = true;
       };
     }

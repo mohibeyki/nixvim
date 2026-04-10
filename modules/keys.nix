@@ -146,12 +146,6 @@
       action = ";<c-g>u";
     }
     {
-      mode = "n";
-      key = "<leader>K";
-      action = "<cmd>norm! K<cr>";
-      options.desc = "Keywordprg";
-    }
-    {
       mode = "x";
       key = "<";
       action = "<gv";

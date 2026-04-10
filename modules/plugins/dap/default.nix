@@ -119,7 +119,7 @@
     }
     {
       mode = "n";
-      key = "<leader>dx";
+      key = "<leader>dt";
       action.__raw = ''
         function()
           require("dap").terminate()
@@ -197,27 +197,27 @@
     }
     {
       mode = "n";
-      key = "<leader>dK";
+      key = "<leader>dk";
       action.__raw = ''
         function()
           require("dap").up()
         end
       '';
       options = {
-        desc = "Go Up in Call Stack";
+        desc = "Up in Call Stack";
         silent = true;
       };
     }
     {
       mode = "n";
-      key = "<leader>dJ";
+      key = "<leader>dj";
       action.__raw = ''
         function()
           require("dap").down()
         end
       '';
       options = {
-        desc = "Go Down in Call Stack";
+        desc = "Down in Call Stack";
         silent = true;
       };
     }
@@ -273,6 +273,58 @@
       '';
       options = {
         desc = "List All Breakpoints";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>dw";
+      action.__raw = ''
+        function()
+          require("dapui").toggle("widgets")
+        end
+      '';
+      options = {
+        desc = "Widgets";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>dP";
+      action.__raw = ''
+        function()
+          require("dap").pause()
+        end
+      '';
+      options = {
+        desc = "Pause";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>ds";
+      action.__raw = ''
+        function()
+          require("dap").session()
+        end
+      '';
+      options = {
+        desc = "Session";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>da";
+      action.__raw = ''
+        function()
+          require("dap").run_last()
+        end
+      '';
+      options = {
+        desc = "Run with Args";
         silent = true;
       };
     }
