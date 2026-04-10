@@ -30,16 +30,4 @@ in
       formatters_by_ft = formattersByFt;
     };
   };
-
-  keymaps = [
-    {
-      mode = [
-        "n"
-        "x"
-      ];
-      key = "<leader>cF";
-      action = ''<cmd>lua require("conform").format({ formatters = { "injected" } })<cr>'';
-      options.desc = "Format Injected Langs";
-    }
-  ];
 }

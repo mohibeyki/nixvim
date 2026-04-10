@@ -35,7 +35,7 @@
         };
         "gr" = {
           action = "references";
-          desc = "Goto References";
+          desc = "References";
         };
         "gD" = {
           action = "declaration";
@@ -57,10 +57,6 @@
           action = "rename";
           desc = "Rename";
         };
-        "<leader>ca" = {
-          action = "code_action";
-          desc = "Code Action";
-        };
       };
       diagnostic = {
         "<leader>cd" = {
@@ -78,60 +74,6 @@
       };
     };
   };
-
-  keymaps = [
-    {
-      mode = "n";
-      key = "<leader>cl";
-      action = "<cmd>lua Snacks.picker.lsp_config()<CR>";
-      options = {
-        desc = "Lsp Info";
-        silent = true;
-      };
-    }
-    {
-      mode = [
-        "n"
-        "x"
-      ];
-      key = "<leader>ca";
-      action = "<cmd>lua vim.lsp.buf.code_action()<CR>";
-      options = {
-        desc = "Code Action";
-        silent = true;
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>ss";
-      action = "<cmd>lua Snacks.picker.lsp_symbols()<CR>";
-      options = {
-        desc = "LSP Symbols";
-        silent = true;
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>sS";
-      action = "<cmd>lua Snacks.picker.lsp_workspace_symbols()<CR>";
-      options = {
-        desc = "LSP Workspace Symbols";
-        silent = true;
-      };
-    }
-    {
-      mode = [
-        "n"
-        "v"
-      ];
-      key = "<leader>cf";
-      action = "<cmd>lua vim.lsp.buf.format()<cr>";
-      options = {
-        desc = "Format";
-        silent = true;
-      };
-    }
-  ];
 
   extraConfigLua = ''
     vim.api.nvim_create_autocmd("LspAttach", {

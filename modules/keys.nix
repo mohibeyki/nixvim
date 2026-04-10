@@ -90,21 +90,6 @@
       };
     }
     {
-      mode = "n";
-      key = "<leader>qq";
-      action = "<cmd>qa<cr>";
-      options = {
-        desc = "Quit All";
-        silent = true;
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>ur";
-      action = "<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>";
-      options.desc = "Redraw / Clear hlsearch / Diff Update";
-    }
-    {
       mode = [
         "n"
         "x"
@@ -169,12 +154,6 @@
     }
     {
       mode = "n";
-      key = "<leader>fn";
-      action = "<cmd>enew<cr>";
-      options.desc = "New File";
-    }
-    {
-      mode = "n";
       key = "]e";
       action.__raw = ''
         function()
@@ -212,82 +191,6 @@
         end
       '';
       options.desc = "Prev Warning";
-    }
-    {
-      mode = "n";
-      key = "<leader>gL";
-      action = "<cmd>lua Snacks.picker.git_log()<cr>";
-      options.desc = "Git Log (cwd)";
-    }
-    {
-      mode = "n";
-      key = "<leader>gb";
-      action = "<cmd>lua Snacks.picker.git_log_line()<cr>";
-      options.desc = "Git Blame Line";
-    }
-    {
-      mode = "n";
-      key = "<leader>gf";
-      action = "<cmd>lua Snacks.picker.git_log_file()<cr>";
-      options.desc = "Git Current File History";
-    }
-    {
-      mode = "n";
-      key = "<leader>gl";
-      action.__raw = ''
-        function()
-          Snacks.picker.git_log({ cwd = Snacks.git.get_root() })
-        end
-      '';
-      options.desc = "Git Log";
-    }
-    {
-      mode = [
-        "n"
-        "x"
-      ];
-      key = "<leader>gB";
-      action.__raw = ''
-        function()
-          Snacks.gitbrowse()
-        end
-      '';
-      options.desc = "Git Browse (open)";
-    }
-    {
-      mode = [
-        "n"
-        "x"
-      ];
-      key = "<leader>gY";
-      action.__raw = ''
-        function()
-          Snacks.gitbrowse({
-            open = function(url)
-              vim.fn.setreg("+", url)
-            end,
-            notify = false,
-          })
-        end
-      '';
-      options.desc = "Git Browse (copy)";
-    }
-    {
-      mode = "n";
-      key = "<leader>ui";
-      action = "<cmd>lua vim.show_pos()<cr>";
-      options.desc = "Inspect Pos";
-    }
-    {
-      mode = "n";
-      key = "<leader>uI";
-      action.__raw = ''
-        function()
-          vim.treesitter.inspect_tree()
-          vim.api.nvim_input("I")
-        end
-      '';
-      options.desc = "Inspect Tree";
     }
     {
       mode = "n";
@@ -381,6 +284,24 @@
       key = "<C-Right>";
       action = "<cmd>vertical resize +2<cr>";
       options.desc = "Increase Window Width";
+    }
+    {
+      mode = "n";
+      key = "<leader>K";
+      action = "<cmd>norm! K<cr>";
+      options.desc = "Keywordprg";
+    }
+    {
+      mode = "n";
+      key = "<leader>xl";
+      action = "<cmd>lopen<cr>";
+      options.desc = "Location List";
+    }
+    {
+      mode = "n";
+      key = "<leader>xq";
+      action = "<cmd>copen<cr>";
+      options.desc = "Quickfix List";
     }
     {
       mode = "n";

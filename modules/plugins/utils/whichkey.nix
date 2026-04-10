@@ -37,6 +37,10 @@
           group = "+git";
         }
         {
+          __unkeyed-1 = "<leader>gh";
+          group = "+hunks";
+        }
+        {
           __unkeyed-1 = "<leader>m";
           group = "+markdown";
         }
@@ -97,19 +101,4 @@
       ];
     };
   };
-
-  keymaps = [
-    {
-      mode = "n";
-      key = "<leader>?";
-      action = ''<cmd>lua require("which-key").show({ global = false })<cr>'';
-      options.desc = "Buffer Keymaps (which-key)";
-    }
-    {
-      mode = "n";
-      key = "<c-w><space>";
-      action = ''<cmd>lua require("which-key").show({ keys = "<c-w>", loop = true })<cr>'';
-      options.desc = "Window Hydra Mode (which-key)";
-    }
-  ];
 }

@@ -1,18 +1,8 @@
 {
-  keymaps = [
-    {
-      mode = "n";
-      key = "<leader>n";
-      action = "<cmd>lua Snacks.picker.notifications()<CR>";
-      options.desc = "Notification History";
-    }
-    {
-      mode = "n";
-      key = "<leader>un";
-      action = "<cmd>lua Snacks.notifier.hide()<CR>";
-      options.desc = "Dismiss All Notifications";
-    }
-  ];
+  plugins.snacks = {
+    enable = true;
+    settings.toggle = { };
+  };
 
   extraConfigLua = ''
     Snacks.toggle.profiler():map("<leader>dpp")
@@ -66,20 +56,5 @@
     end
     Snacks.toggle.zoom():map("<leader>wm"):map("<leader>uZ")
     Snacks.toggle.zen():map("<leader>uz")
-
-    -- Auto-open Snacks explorer when starting Neovim with a directory argument
-    vim.api.nvim_create_autocmd("VimEnter", {
-      callback = function()
-        local buf = vim.api.nvim_get_current_buf()
-        local bufname = vim.api.nvim_buf_get_name(buf)
-        if bufname ~= "" and vim.fn.isdirectory(bufname) == 1 then
-          -- It's a directory, open the explorer
-          vim.schedule(function()
-            Snacks.explorer.open({ cwd = bufname })
-          end)
-        end
-      end,
-      desc = "Auto-open Snacks explorer on directory",
-    })
   '';
 }
