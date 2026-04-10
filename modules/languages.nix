@@ -137,7 +137,6 @@ in
       };
     };
 
-    # Enabled languages
     enabled = [
       "c"
       "go"

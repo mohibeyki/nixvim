@@ -9,6 +9,7 @@
     ./plugins/coding
     ./plugins/colorscheme
     ./plugins/completion
+    ./plugins/dap
     ./plugins/editor
     ./plugins/git
     ./plugins/linting

@@ -13,7 +13,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
-    systems.url = "github:nix-systems/default";
 
     nixvim = {
       url = "github:nix-community/nixvim";
@@ -29,12 +28,15 @@
   outputs =
     inputs@{
       flake-parts,
-      systems,
       neovim-nightly-overlay,
       ...
     }:
     flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = import systems;
+      systems = [
+        "aarch64-darwin"
+        "aarch64-linux"
+        "x86_64-linux"
+      ];
 
       perSystem =
         { pkgs, system, ... }:
@@ -44,9 +46,7 @@
           nvim = nixvim'.makeNixvimWithModule {
             pkgs = pkgs';
             module = ./modules;
-            extraSpecialArgs = {
-              neovim = pkgs'.neovim;
-            };
+            extraSpecialArgs.neovim = pkgs'.neovim;
           };
         in
         {
@@ -54,7 +54,8 @@
             default = nvim;
             nixvim = nvim;
           };
-          formatter = pkgs.nixfmt-rfc-style;
+
+          formatter = pkgs.nixfmt;
         };
     };
 }

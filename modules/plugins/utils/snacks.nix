@@ -3,6 +3,7 @@
     enable = true;
     settings = {
       bufdelete.enabled = true;
+
       indent = {
         enabled = true;
         indent.char = "│";
@@ -11,6 +12,7 @@
           char = "╎";
         };
       };
+
       dashboard = {
         enabled = true;
         preset.keys = [
@@ -70,18 +72,28 @@
           }
         ];
       };
+
       picker.enabled = true;
+
       notifier = {
         enabled = true;
         timeout = 3000;
       };
+
       toggle = { };
+
       words.enabled = true;
+
       rename.enabled = true;
+
       input.enabled = true;
+
       scroll.enabled = true;
+
       explorer.enabled = true;
+
       quickfile.enabled = true;
+
       statuscolumn = {
         enabled = true;
         left = [
@@ -460,7 +472,7 @@
       mode = "n";
       key = "<leader>sp";
       action = "<cmd>lua Snacks.picker.lazy()<CR>";
-      options.desc = "Search for Plugin Spec";
+      options.desc = "Search Plugin Configs";
     }
     {
       mode = "n";

@@ -5,5 +5,4 @@
   extraConfigLua = ''
     require("outline").setup({})
   '';
-
 }

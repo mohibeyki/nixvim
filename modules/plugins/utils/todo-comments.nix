@@ -60,7 +60,11 @@
     {
       mode = "n";
       key = "<leader>sT";
-      action = "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>";
+      action.__raw = ''
+        function()
+          require("todo-comments").todo({ keywords = { "TODO", "FIX", "FIXME" } })
+        end
+      '';
       options = {
         desc = "Todo/Fix/Fixme";
       };

@@ -37,8 +37,12 @@
           group = "+git";
         }
         {
-          __unkeyed-1 = "<leader>gh";
-          group = "+hunks";
+          __unkeyed-1 = "<leader>m";
+          group = "+markdown";
+        }
+        {
+          __unkeyed-1 = "<leader>v";
+          group = "+visits";
         }
         {
           __unkeyed-1 = "[";
@@ -59,6 +63,10 @@
         {
           __unkeyed-1 = "<leader>q";
           group = "+quit/session";
+        }
+        {
+          __unkeyed-1 = "<leader>r";
+          group = "+refactor";
         }
         {
           __unkeyed-1 = "<leader>s";

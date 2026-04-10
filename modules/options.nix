@@ -91,8 +91,8 @@
     # Input & Timing
     # --------------------------------------------------------------------------
     mouse = "a"; # Enable mouse in all modes
-    updatetime = 50; # Faster completion (default 4000ms)
-    timeoutlen = 10; # Which-key timeout (ms)
+    updatetime = 200; # Faster completion (default 4000ms)
+    timeoutlen = 500; # Which-key timeout (ms)
 
     # --------------------------------------------------------------------------
     # Completion (for blink-cmp)
@@ -129,6 +129,6 @@
     # --------------------------------------------------------------------------
     # Misc
     # --------------------------------------------------------------------------
-    colorcolumn = "80"; # Uncomment to show column guide
+    colorcolumn = "80";
   };
 }

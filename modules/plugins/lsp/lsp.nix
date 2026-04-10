@@ -1,34 +1,17 @@
 { config, lib, ... }:
-let
-  # Get enabled language configs
-  enabledLangs = config.languages.enabledConfigs;
-
-  # Get list of LSP servers to enable (filtering out nulls)
-  lspServers = lib.filterAttrs (_: v: v.lsp != null) enabledLangs;
-in
 {
   plugins.lsp = {
     enable = true;
     inlayHints = true;
 
     servers = {
-      # Enable servers based on language config
-      # Then override specific ones that need extra configuration
       lua_ls.enable = lib.elem "lua" config.languages.enabled;
       marksman.enable = lib.elem "markdown" config.languages.enabled;
       pyright.enable = lib.elem "python" config.languages.enabled;
       gopls.enable = lib.elem "go" config.languages.enabled;
       yamlls.enable = lib.elem "yaml" config.languages.enabled;
       clangd.enable = lib.elem "c" config.languages.enabled;
-
-      # Complex server configs (manual overrides)
-      nixd = lib.mkIf (lib.elem "nix" config.languages.enabled) {
-        enable = true;
-        extraOptions = {
-          nixos.expr = "(builtins.getFlake \"/etc/nixos\").nixosConfigurations.aurelionite.options";
-          home_manager.expr = "(builtins.getFlake \"/etc/nixos\").homeConfigurations.aurelionite.options";
-        };
-      };
+      nixd.enable = lib.elem "nix" config.languages.enabled;
     };
 
     keymaps = {
@@ -243,7 +226,6 @@ in
       end,
     })
 
-    -- Rounded borders for LSP handlers (Neovim 0.11+ API)
     vim.lsp.handlers["textDocument/hover"] = function(err, result, ctx, config)
       config = config or {}
       config.border = config.border or "rounded"
@@ -255,13 +237,5 @@ in
       config.border = config.border or "rounded"
       return vim.lsp.handlers.signature_help(err, result, ctx, config)
     end
-
-    -- LSP progress autocmd for statusline (custom logic, must be Lua)
-    vim.api.nvim_create_autocmd("LspProgress", {
-      pattern = {"begin", "report", "end"},
-      callback = function(args)
-        vim.cmd("redrawstatus")
-      end,
-    })
   '';
 }

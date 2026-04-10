@@ -1,9 +1,7 @@
 { config, lib, ... }:
 let
-  # Get enabled language configs that have formatters
   enabledWithFormatters = lib.filterAttrs (_: v: v.formatter != null) config.languages.enabledConfigs;
 
-  # Build formatters_by_ft from language configs
   formattersByFt = lib.mapAttrs' (
     name: cfg:
     let

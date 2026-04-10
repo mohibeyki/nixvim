@@ -297,48 +297,6 @@
     }
     {
       mode = "n";
-      key = "<leader>fT";
-      action = "<cmd>lua Snacks.terminal()<cr>";
-      options.desc = "Terminal (cwd)";
-    }
-    {
-      mode = "n";
-      key = "<leader>ft";
-      action.__raw = ''
-        function()
-          Snacks.terminal(nil, { cwd = Snacks.git.get_root() or vim.fn.getcwd() })
-        end
-      '';
-      options.desc = "Terminal (Root Dir)";
-    }
-    {
-      mode = [
-        "n"
-        "t"
-      ];
-      key = "<c-/>";
-      action.__raw = ''
-        function()
-          Snacks.terminal.focus(nil, { cwd = Snacks.git.get_root() or vim.fn.getcwd() })
-        end
-      '';
-      options.desc = "Terminal (Root Dir)";
-    }
-    {
-      mode = [
-        "n"
-        "t"
-      ];
-      key = "<c-_>";
-      action.__raw = ''
-        function()
-          Snacks.terminal.focus(nil, { cwd = Snacks.git.get_root() or vim.fn.getcwd() })
-        end
-      '';
-      options.desc = "which_key_ignore";
-    }
-    {
-      mode = "n";
       key = "<leader>-";
       action = "<C-W>s";
       options = {

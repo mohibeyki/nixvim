@@ -20,7 +20,6 @@
         desc = "Next Buffer";
       };
     }
-
     {
       mode = "n";
       key = "<S-h>";
@@ -45,7 +44,6 @@
         desc = "Move buffer next";
       };
     }
-
     {
       mode = "n";
       key = "<leader>bd";
@@ -54,7 +52,6 @@
         desc = "Delete buffer";
       };
     }
-
     {
       mode = "n";
       key = "<leader>bD";
@@ -63,7 +60,6 @@
         desc = "Delete Buffer and Window";
       };
     }
-
     {
       mode = "n";
       key = "<leader>bb";
@@ -72,7 +68,6 @@
         desc = "Switch to Other Buffer";
       };
     }
-
     {
       mode = "n";
       key = "<leader>br";
@@ -81,7 +76,6 @@
         desc = "Delete buffers to the right";
       };
     }
-
     {
       mode = "n";
       key = "<leader>bl";
@@ -90,7 +84,6 @@
         desc = "Delete buffers to the left";
       };
     }
-
     {
       mode = "n";
       key = "<leader>bo";
@@ -99,7 +92,6 @@
         desc = "Delete other buffers";
       };
     }
-
     {
       mode = "n";
       key = "<leader>bp";
@@ -108,7 +100,6 @@
         desc = "Toggle pin";
       };
     }
-
     {
       mode = "n";
       key = "<leader>bP";
