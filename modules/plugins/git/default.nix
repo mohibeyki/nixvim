@@ -1,8 +1,8 @@
 {
   imports = [
     ./keymaps.nix
+    ./gitsigns.nix
     ./lazygit.nix
-    ./mini.diff.nix
     ./snacks.git.nix
   ];
 }

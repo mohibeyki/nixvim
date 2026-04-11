@@ -26,13 +26,13 @@
       };
     }
 
-    # ── mini.diff ─────────────────────────────────────────────────────────────
+    # ── gitsigns ──────────────────────────────────────────────────────────────
     {
       mode = "n";
       key = "]h";
       action.__raw = ''
         function()
-          require("mini.diff").goto_hunk("next")
+          require("gitsigns").next_hunk()
         end
       '';
       options = {
@@ -45,7 +45,7 @@
       key = "[h";
       action.__raw = ''
         function()
-          require("mini.diff").goto_hunk("prev")
+          require("gitsigns").prev_hunk()
         end
       '';
       options = {
@@ -58,7 +58,7 @@
       key = "]H";
       action.__raw = ''
         function()
-          require("mini.diff").goto_hunk("last")
+          require("gitsigns").nav_hunk("last")
         end
       '';
       options = {
@@ -71,7 +71,7 @@
       key = "[H";
       action.__raw = ''
         function()
-          require("mini.diff").goto_hunk("first")
+          require("gitsigns").nav_hunk("first")
         end
       '';
       options = {
@@ -80,15 +80,138 @@
       };
     }
     {
+      mode = [
+        "n"
+        "x"
+      ];
+      key = "<leader>ghs";
+      action.__raw = ''
+        function()
+          require("gitsigns").stage_hunk()
+        end
+      '';
+      options = {
+        desc = "Stage Hunk";
+        silent = true;
+      };
+    }
+    {
+      mode = [
+        "n"
+        "x"
+      ];
+      key = "<leader>ghr";
+      action.__raw = ''
+        function()
+          require("gitsigns").reset_hunk()
+        end
+      '';
+      options = {
+        desc = "Reset Hunk";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>ghS";
+      action.__raw = ''
+        function()
+          require("gitsigns").stage_buffer()
+        end
+      '';
+      options = {
+        desc = "Stage Buffer";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>ghR";
+      action.__raw = ''
+        function()
+          require("gitsigns").reset_buffer()
+        end
+      '';
+      options = {
+        desc = "Reset Buffer";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>ghu";
+      action.__raw = ''
+        function()
+          require("gitsigns").undo_stage_hunk()
+        end
+      '';
+      options = {
+        desc = "Undo Stage Hunk";
+        silent = true;
+      };
+    }
+    {
       mode = "n";
       key = "<leader>ghp";
       action.__raw = ''
         function()
-          require("mini.diff").toggle_overlay()
+          require("gitsigns").preview_hunk_inline()
         end
       '';
       options = {
         desc = "Preview Hunk Inline";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>ghd";
+      action.__raw = ''
+        function()
+          require("gitsigns").diffthis()
+        end
+      '';
+      options = {
+        desc = "Diff This";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>ghD";
+      action.__raw = ''
+        function()
+          require("gitsigns").diffthis("~")
+        end
+      '';
+      options = {
+        desc = "Diff This ~";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>ghb";
+      action.__raw = ''
+        function()
+          require("gitsigns").blame_line({ full = true })
+        end
+      '';
+      options = {
+        desc = "Blame Line";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>ghB";
+      action.__raw = ''
+        function()
+          require("gitsigns").blame()
+        end
+      '';
+      options = {
+        desc = "Blame Buffer";
         silent = true;
       };
     }
