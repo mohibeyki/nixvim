@@ -321,5 +321,44 @@
       action = "<cmd>e #<cr>";
       options.desc = "Switch to Other Buffer";
     }
+    {
+      mode = "n";
+      key = "<leader>uf";
+      action.__raw = ''
+        function()
+          vim.g.disable_autoformat = not vim.g.disable_autoformat
+          vim.notify("Format on save: " .. (vim.g.disable_autoformat and "OFF" or "ON"))
+        end
+      '';
+      options.desc = "Toggle Format on Save";
+    }
+    # Terminal escape
+    {
+      mode = "t";
+      key = "<Esc><Esc>";
+      action = "<C-\><C-n>";
+      options.desc = "Exit Terminal Mode";
+    }
+    # Close quickfix/location list
+    {
+      mode = "n";
+      key = "<C-q>";
+      action.__raw = ''
+        function()
+          -- Close quickfix if open
+          for _, win in ipairs(vim.api.nvim_list_wins()) do
+            local buf = vim.api.nvim_win_get_buf(win)
+            local buftype = vim.api.nvim_buf_get_option(buf, "buftype")
+            if buftype == "quickfix" then
+              vim.api.nvim_win_close(win, false)
+              return
+            end
+          end
+          -- Otherwise close current window
+          vim.cmd("close")
+        end
+      '';
+      options.desc = "Close Quickfix or Window";
+    }
   ];
 }

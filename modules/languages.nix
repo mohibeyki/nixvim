@@ -89,6 +89,58 @@ in
         linters = "golangci-lint";
       };
 
+      typescript = {
+        filetypes = [
+          "typescript"
+          "typescriptreact"
+          "javascript"
+          "javascriptreact"
+        ];
+        lsp = "vtsls";
+        formatter = [
+          "prettierd"
+          "prettier"
+        ];
+        treesitter = [
+          "typescript"
+          "tsx"
+          "javascript"
+          "jsx"
+        ];
+        linters = "eslint";
+      };
+
+      rust = {
+        filetypes = [ "rust" ];
+        lsp = "rust_analyzer";
+        formatter = "rustfmt";
+        treesitter = "rust";
+        linters = "clippy";
+      };
+
+      json = {
+        filetypes = [
+          "json"
+          "jsonc"
+        ];
+        lsp = "jsonls";
+        formatter = "jq";
+        treesitter = "json";
+        linters = null;
+      };
+
+      bash = {
+        filetypes = [
+          "sh"
+          "bash"
+          "zsh"
+        ];
+        lsp = "bashls";
+        formatter = "shfmt";
+        treesitter = "bash";
+        linters = "shellcheck";
+      };
+
       markdown = {
         filetypes = [
           "markdown"
@@ -138,12 +190,16 @@ in
     };
 
     enabled = [
+      "bash"
       "c"
       "go"
+      "json"
       "lua"
       "markdown"
       "nix"
       "python"
+      "rust"
+      "typescript"
       "yaml"
     ];
   };

@@ -61,7 +61,7 @@
           group = "+goto";
         }
         {
-          __unkeyed-1 = "gs";
+          __unkeyed-1 = "gz";
           group = "+surround";
         }
         {

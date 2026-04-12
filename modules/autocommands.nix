@@ -44,5 +44,32 @@
         end
       '';
     }
+
+    # Auto-save session on buffer write
+    {
+      event = "BufWritePre";
+      pattern = "*";
+      callback.__raw = ''
+        function()
+          if vim.bo.filetype ~= "gitcommit" and vim.bo.filetype ~= "gitrebase" then
+            require("persistence").save()
+          end
+        end
+      '';
+    }
+
+    # Auto-restore session on startup (if no arguments provided)
+    {
+      event = "VimEnter";
+      pattern = "*";
+      nested = true;
+      callback.__raw = ''
+        function()
+          if vim.fn.argc() == 0 and not vim.g.started_with_stdin then
+            require("persistence").load()
+          end
+        end
+      '';
+    }
   ];
 }

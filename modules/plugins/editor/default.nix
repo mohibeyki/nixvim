@@ -2,6 +2,7 @@
   imports = [
     ./keymaps.nix
     ./conform.nix
+    ./flash.nix
     ./refactoring.nix
     ./snacks.bigfile.nix
     ./snacks.picker.nix

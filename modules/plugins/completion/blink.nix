@@ -30,6 +30,13 @@
         };
       };
 
+      signature = {
+        enabled = true;
+        window = {
+          border = "rounded";
+        };
+      };
+
       cmdline = {
         enabled = true;
         keymap = {

@@ -112,15 +112,6 @@
     autoread = true; # Auto-reload changed files
 
     # --------------------------------------------------------------------------
-    # Folds (configured for nvim-ufo)
-    # --------------------------------------------------------------------------
-    # See: https://github.com/kevinhwang91/nvim-ufo#minimal-configuration
-    foldcolumn = "0";
-    foldlevel = 99;
-    foldlevelstart = 99;
-    foldenable = true;
-
-    # --------------------------------------------------------------------------
     # Encoding
     # --------------------------------------------------------------------------
     encoding = "utf-8";
@@ -130,5 +121,9 @@
     # Misc
     # --------------------------------------------------------------------------
     colorcolumn = "80";
+
+    # Window title for window managers
+    title = true;
+    titlestring = "%t - NVIM";
   };
 }
