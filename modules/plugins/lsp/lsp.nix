@@ -1,4 +1,10 @@
 { config, lib, ... }:
+let
+  enabledWithLsp = lib.filterAttrs (_: cfg: cfg.lsp != null) config.languages.enabledConfigs;
+  lspServers = lib.mapAttrs' (
+    _: cfg: lib.nameValuePair cfg.lsp ({ enable = true; } // cfg.lspSettings)
+  ) enabledWithLsp;
+in
 {
   filetype = {
     extension = {
@@ -16,15 +22,7 @@
     enable = true;
     inlayHints = true;
 
-    servers = {
-      lua_ls.enable = lib.elem "lua" config.languages.enabled;
-      marksman.enable = lib.elem "markdown" config.languages.enabled;
-      pyright.enable = lib.elem "python" config.languages.enabled;
-      gopls.enable = lib.elem "go" config.languages.enabled;
-      yamlls.enable = lib.elem "yaml" config.languages.enabled;
-      clangd.enable = lib.elem "c" config.languages.enabled;
-      nixd.enable = lib.elem "nix" config.languages.enabled;
-    };
+    servers = lspServers;
 
     keymaps = {
       silent = true;

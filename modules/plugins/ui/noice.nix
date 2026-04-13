@@ -1,9 +1,4 @@
 {
-  plugins.snacks = {
-    enable = true;
-    settings.notifier.enabled = false;
-  };
-
   plugins.noice = {
     enable = true;
     settings = {

@@ -321,17 +321,6 @@
       action = "<cmd>e #<cr>";
       options.desc = "Switch to Other Buffer";
     }
-    {
-      mode = "n";
-      key = "<leader>uf";
-      action.__raw = ''
-        function()
-          vim.g.disable_autoformat = not vim.g.disable_autoformat
-          vim.notify("Format on save: " .. (vim.g.disable_autoformat and "OFF" or "ON"))
-        end
-      '';
-      options.desc = "Toggle Format on Save";
-    }
     # Terminal escape
     {
       mode = "t";

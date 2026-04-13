@@ -46,7 +46,6 @@
           nvim = nixvim'.makeNixvimWithModule {
             pkgs = pkgs';
             module = ./modules;
-            extraSpecialArgs.neovim = pkgs'.neovim;
           };
         in
         {
@@ -55,7 +54,7 @@
             nixvim = nvim;
           };
 
-          formatter = pkgs.nixfmt;
+          formatter = pkgs.nixfmt-rfc-style;
         };
     };
 }

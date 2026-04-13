@@ -1,14 +1,13 @@
 { config, lib, ... }:
 let
   enabledWithLinters = lib.filterAttrs (_: v: v.linters != null) config.languages.enabledConfigs;
-  lintersByFt = lib.mapAttrs' (
-    name: cfg:
+  lintersByFt = lib.foldlAttrs (
+    acc: _name: cfg:
     let
-      firstFiletype = lib.head cfg.filetypes;
       linters = if lib.isList cfg.linters then cfg.linters else [ cfg.linters ];
     in
-    lib.nameValuePair firstFiletype linters
-  ) enabledWithLinters;
+    acc // lib.genAttrs cfg.filetypes (_: linters)
+  ) { } enabledWithLinters;
 in
 {
   plugins.lint = {

@@ -2,7 +2,6 @@
   imports = [
     ./keymaps.nix
     ./bufferline.nix
-    ./dressing.nix
     ./lualine.nix
     ./noice.nix
     ./smart-splits.nix
@@ -12,6 +11,7 @@
     ./snacks.image.nix
     ./snacks.toggle.nix
     ./snacks.input.nix
+    ./snacks.notifier.nix
     ./snacks.scroll.nix
     ./snacks.statuscolumn.nix
     ./mini.hipatterns.nix

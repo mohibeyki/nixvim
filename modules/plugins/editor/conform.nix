@@ -2,14 +2,13 @@
 let
   enabledWithFormatters = lib.filterAttrs (_: v: v.formatter != null) config.languages.enabledConfigs;
 
-  formattersByFt = lib.mapAttrs' (
-    name: cfg:
+  formattersByFt = lib.foldlAttrs (
+    acc: _name: cfg:
     let
-      firstFiletype = lib.head cfg.filetypes;
       formatters = if lib.isList cfg.formatter then cfg.formatter else [ cfg.formatter ];
     in
-    lib.nameValuePair firstFiletype formatters
-  ) enabledWithFormatters;
+    acc // lib.genAttrs cfg.filetypes (_: formatters)
+  ) { } enabledWithFormatters;
 in
 {
   plugins.conform-nvim = {

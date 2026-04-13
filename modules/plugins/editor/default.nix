@@ -12,7 +12,6 @@
     ./snacks.rename.nix
     ./snacks.quickfile.nix
     ./mini.bracketed.nix
-    ./mini.jump.nix
     ./mini.move.nix
     ./mini.visits.nix
   ];

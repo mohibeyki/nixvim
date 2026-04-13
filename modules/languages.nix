@@ -35,6 +35,11 @@ in
               default = null;
               description = "Linters to use for this language (null = no linters)";
             };
+            lspSettings = lib.mkOption {
+              type = lib.types.attrs;
+              default = { };
+              description = "Extra settings merged into plugins.lsp.servers.<name> for this language";
+            };
           };
         }
       );
@@ -105,7 +110,6 @@ in
           "typescript"
           "tsx"
           "javascript"
-          "jsx"
         ];
         linters = "eslint";
       };
@@ -116,6 +120,10 @@ in
         formatter = "rustfmt";
         treesitter = "rust";
         linters = "clippy";
+        lspSettings = {
+          installCargo = false;
+          installRustc = false;
+        };
       };
 
       json = {

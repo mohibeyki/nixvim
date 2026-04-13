@@ -7,8 +7,4 @@
       };
     };
   };
-
-  extraConfigLua = ''
-    require("mini.visits").setup()
-  '';
 }

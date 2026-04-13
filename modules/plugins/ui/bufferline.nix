@@ -1,4 +1,3 @@
-{ lib, config, ... }:
 {
   plugins = {
     bufferline = {
