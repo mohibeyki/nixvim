@@ -1,8 +1,5 @@
 {
-  plugins.snacks = {
-    enable = true;
-    settings.explorer.enabled = true;
-  };
+  plugins.snacks.settings.explorer.enabled = true;
 
   extraConfigLua = ''
     -- Auto-open Snacks explorer when starting Neovim with a directory argument

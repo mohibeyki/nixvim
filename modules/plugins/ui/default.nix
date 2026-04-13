@@ -14,6 +14,7 @@
     ./snacks.notifier.nix
     ./snacks.scroll.nix
     ./snacks.statuscolumn.nix
+    ./mini.nix
     ./mini.hipatterns.nix
     ./mini.icons.nix
   ];

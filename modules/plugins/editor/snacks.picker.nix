@@ -1,6 +1,3 @@
 {
-  plugins.snacks = {
-    enable = true;
-    settings.picker.enabled = true;
-  };
+  plugins.snacks.settings.picker.enabled = true;
 }

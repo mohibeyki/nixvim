@@ -1,6 +1,3 @@
 {
-  plugins.snacks = {
-    enable = true;
-    settings.rename.enabled = true;
-  };
+  plugins.snacks.settings.rename.enabled = true;
 }

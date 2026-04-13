@@ -1,6 +1,3 @@
 {
-  plugins.snacks = {
-    enable = true;
-    settings.scroll.enabled = true;
-  };
+  plugins.snacks.settings.scroll.enabled = true;
 }

@@ -1,6 +1,3 @@
 {
-  plugins.snacks = {
-    enable = true;
-    settings.terminal.enabled = true;
-  };
+  plugins.snacks.settings.terminal.enabled = true;
 }

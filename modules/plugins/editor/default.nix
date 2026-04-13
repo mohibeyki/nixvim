@@ -4,6 +4,7 @@
     ./conform.nix
     ./flash.nix
     ./refactoring.nix
+    ./snacks.nix
     ./snacks.bigfile.nix
     ./snacks.picker.nix
     ./snacks.terminal.nix

@@ -22,16 +22,18 @@ modules/
 ├── keys.nix               # Global keymaps
 ├── autocommands.nix       # Auto commands
 └── plugins/
-    ├── coding/            # Coding plugins (ts-comments)
+    ├── ai/                # AI plugins (opencode)
+    ├── coding/            # Coding plugins (ts-comments, mini.ai, mini.surround)
     ├── colorscheme/       # Theme (rose-pine)
-    ├── completion/        # Completion (blink)
-    ├── editor/            # Editor tools (conform, outline, refactoring)
-    ├── git/               # Git plugins (gitsigns, lazygit)
+    ├── completion/        # Completion (blink.cmp)
+    ├── dap/               # Debugging (nvim-dap, dap-ui, dap-go, dap-python)
+    ├── editor/            # Editor tools (conform, flash, refactoring, snacks.picker, snacks.explorer, ...)
+    ├── git/               # Git plugins (gitsigns + snacks lazygit/git integration)
     ├── linting/           # Linting (nvim-lint)
-    ├── lsp/               # LSP configuration
-    ├── treesitter/        # Treesitter + textobjects
-    ├── ui/                # UI plugins (lualine, bufferline, noice)
-    └── utils/             # Utilities (snacks, flash, yanky, etc.)
+    ├── lsp/               # LSP configuration + trouble
+    ├── treesitter/        # Treesitter + context + textobjects
+    ├── ui/                # UI plugins (lualine, bufferline, noice, snacks.dashboard, ...)
+    └── utils/             # Utilities (which-key, yanky, persistence, todo-comments, markview)
 ```
 
 ## Keymaps

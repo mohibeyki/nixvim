@@ -1,7 +1,3 @@
 {
-  plugins.mini = {
-    enable = true;
-    mockDevIcons = true;
-    modules.icons = { };
-  };
+  plugins.mini.modules.icons = { };
 }

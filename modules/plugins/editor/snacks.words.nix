@@ -1,6 +1,3 @@
 {
-  plugins.snacks = {
-    enable = true;
-    settings.words.enabled = true;
-  };
+  plugins.snacks.settings.words.enabled = true;
 }

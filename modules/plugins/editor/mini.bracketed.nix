@@ -1,6 +1,3 @@
 {
-  plugins.mini = {
-    enable = true;
-    modules.bracketed = { };
-  };
+  plugins.mini.modules.bracketed = { };
 }

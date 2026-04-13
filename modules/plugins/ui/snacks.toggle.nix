@@ -1,8 +1,5 @@
 {
-  plugins.snacks = {
-    enable = true;
-    settings.toggle = { };
-  };
+  plugins.snacks.settings.toggle = { };
 
   extraConfigLua = ''
     Snacks.toggle.profiler():map("<leader>dpp")
