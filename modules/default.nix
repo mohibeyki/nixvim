@@ -6,6 +6,7 @@
     ./keys.nix
     ./options.nix
 
+    ./plugins/ai
     ./plugins/coding
     ./plugins/colorscheme
     ./plugins/completion

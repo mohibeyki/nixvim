@@ -45,6 +45,10 @@
           group = "+markdown";
         }
         {
+          __unkeyed-1 = "<leader>o";
+          group = "+opencode";
+        }
+        {
           __unkeyed-1 = "<leader>v";
           group = "+visits";
         }
