@@ -1,4 +1,4 @@
-{
+_: {
   imports = [
     ./keymaps.nix
     ./dap-go.nix

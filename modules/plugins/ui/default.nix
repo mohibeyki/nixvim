@@ -1,4 +1,4 @@
-{
+_: {
   imports = [
     ./keymaps.nix
     ./bufferline.nix

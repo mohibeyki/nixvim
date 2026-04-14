@@ -1,4 +1,4 @@
-{
+_: {
   plugins.snacks.settings.dashboard = {
     enabled = true;
     preset.keys = [

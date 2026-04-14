@@ -1,4 +1,4 @@
-{
+_: {
   plugins.mini.modules.move = {
     mappings = {
       left = "<M-h>";

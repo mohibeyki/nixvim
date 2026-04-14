@@ -1,4 +1,4 @@
-{
+_: {
   plugins.snacks.settings.statuscolumn = {
     enabled = true;
     left = [

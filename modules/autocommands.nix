@@ -1,4 +1,4 @@
-{
+_: {
   autoCmd = [
     # Open help in a vertical split
     {

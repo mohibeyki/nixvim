@@ -1,4 +1,4 @@
-{
+_: {
   imports = [
     ./ts-comments.nix
     ./mini.ai.nix
