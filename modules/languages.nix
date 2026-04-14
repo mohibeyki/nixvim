@@ -54,160 +54,18 @@ in
     };
   };
 
-  config.languages = {
-    config = {
-      nix = {
-        filetypes = [ "nix" ];
-        lsp = "nixd";
-        formatter = "nixfmt";
-        treesitter = "nix";
-        linters = "statix";
-      };
-
-      lua = {
-        filetypes = [ "lua" ];
-        lsp = "lua_ls";
-        formatter = "stylua";
-        treesitter = "lua";
-        linters = "luacheck";
-      };
-
-      python = {
-        filetypes = [ "python" ];
-        lsp = "pyright";
-        formatter = "black";
-        treesitter = "python";
-        linters = [
-          "ruff"
-          "pylint"
-        ];
-      };
-
-      go = {
-        filetypes = [ "go" ];
-        lsp = "gopls";
-        formatter = [
-          "gofmt"
-          "goimports"
-        ];
-        treesitter = "go";
-        linters = "golangcilint";
-      };
-
-      typescript = {
-        filetypes = [
-          "typescript"
-          "typescriptreact"
-          "javascript"
-          "javascriptreact"
-        ];
-        lsp = "vtsls";
-        formatter = [
-          "prettierd"
-          "prettier"
-        ];
-        treesitter = [
-          "typescript"
-          "tsx"
-          "javascript"
-        ];
-        linters = "eslint";
-      };
-
-      rust = {
-        filetypes = [ "rust" ];
-        lsp = "rust_analyzer";
-        formatter = "rustfmt";
-        treesitter = "rust";
-        linters = "clippy";
-        lspSettings = {
-          installCargo = false;
-          installRustc = false;
-        };
-      };
-
-      json = {
-        filetypes = [
-          "json"
-          "jsonc"
-        ];
-        lsp = "jsonls";
-        formatter = "jq";
-        treesitter = "json";
-        linters = null;
-      };
-
-      bash = {
-        filetypes = [
-          "sh"
-          "bash"
-        ];
-        lsp = "bashls";
-        formatter = "shfmt";
-        treesitter = "bash";
-        linters = "shellcheck";
-      };
-
-      markdown = {
-        filetypes = [
-          "markdown"
-          "md"
-        ];
-        lsp = "marksman";
-        formatter = [
-          "prettierd"
-          "prettier"
-        ];
-        treesitter = "markdown";
-        linters = "markdownlint";
-      };
-
-      yaml = {
-        filetypes = [
-          "yaml"
-          "yml"
-        ];
-        lsp = "yamlls";
-        formatter = "yamlfmt";
-        treesitter = "yaml";
-        linters = "yamllint";
-      };
-
-      c = {
-        filetypes = [
-          "c"
-          "cc"
-          "cpp"
-          "cxx"
-          "h"
-          "hh"
-          "hpp"
-        ];
-        lsp = "clangd";
-        formatter = "clang_format";
-        treesitter = [
-          "c"
-          "cpp"
-        ];
-        linters = [
-          "cpplint"
-          "clangtidy"
-        ];
-      };
-    };
-
-    enabled = [
-      "bash"
-      "c"
-      "go"
-      "json"
-      "lua"
-      "markdown"
-      "nix"
-      "python"
-      "rust"
-      "typescript"
-      "yaml"
-    ];
-  };
+  config.languages.enabled = [
+    "bash"
+    "c"
+    "fish"
+    "go"
+    "json"
+    "lua"
+    "markdown"
+    "nix"
+    "python"
+    "rust"
+    "typescript"
+    "yaml"
+  ];
 }

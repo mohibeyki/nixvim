@@ -1,6 +1,7 @@
 _: {
   imports = [
     ./languages.nix
+    ./languages
 
     ./autocommands.nix
     ./keys.nix
