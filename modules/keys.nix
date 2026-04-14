@@ -337,7 +337,7 @@
           -- Close quickfix if open
           for _, win in ipairs(vim.api.nvim_list_wins()) do
             local buf = vim.api.nvim_win_get_buf(win)
-            local buftype = vim.api.nvim_buf_get_option(buf, "buftype")
+            local buftype = vim.bo[buf].buftype
             if buftype == "quickfix" then
               vim.api.nvim_win_close(win, false)
               return

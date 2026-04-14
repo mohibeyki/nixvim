@@ -9,7 +9,11 @@ let
   grammarNames = lib.concatMap (
     cfg: if lib.isList cfg.treesitter then cfg.treesitter else [ cfg.treesitter ]
   ) (lib.attrValues enabledWithTs);
-  grammarPackages = map (name: pkgs.vimPlugins.nvim-treesitter.builtGrammars.${name}) grammarNames;
+  allGrammars = pkgs.vimPlugins.nvim-treesitter.builtGrammars;
+  grammarNamesUnique = lib.unique grammarNames;
+  grammarPackages = lib.filter (g: g != null) (
+    map (name: allGrammars.${name} or null) grammarNamesUnique
+  );
 in
 {
   plugins.treesitter = {

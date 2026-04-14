@@ -98,10 +98,6 @@
           __unkeyed-1 = "<leader>x";
           group = "+diagnostics/quickfix";
         }
-        {
-          __unkeyed-1 = "z";
-          group = "+fold";
-        }
       ];
     };
   };

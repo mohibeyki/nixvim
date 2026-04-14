@@ -1,13 +1,13 @@
 {
   plugins.mini.modules.surround = {
     mappings = {
-      add = "gsa";
-      delete = "gsd";
-      find = "gsf";
-      find_left = "gsF";
-      highlight = "gsh";
-      replace = "gsr";
-      update_n_lines = "gsn";
+      add = "gza";
+      delete = "gzd";
+      find = "gzf";
+      find_left = "gzF";
+      highlight = "gzh";
+      replace = "gzr";
+      update_n_lines = "gzn";
     };
   };
 }

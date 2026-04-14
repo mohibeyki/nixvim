@@ -28,8 +28,9 @@
         silent = true;
       };
     }
-
-    # ── refactoring ───────────────────────────────────────────────────────────
+  ]
+  # ── refactoring ───────────────────────────────────────────────────────────
+  ++ lib.optionals config.plugins.refactoring.enable [
     {
       mode = "n";
       key = "<leader>rb";
@@ -159,7 +160,8 @@
         silent = true;
       };
     }
-
+  ]
+  ++ [
     # ── snacks.picker ─────────────────────────────────────────────────────────
     {
       mode = "n";

@@ -91,7 +91,7 @@ in
           "goimports"
         ];
         treesitter = "go";
-        linters = "golangci-lint";
+        linters = "golangcilint";
       };
 
       typescript = {
@@ -141,7 +141,6 @@ in
         filetypes = [
           "sh"
           "bash"
-          "zsh"
         ];
         lsp = "bashls";
         formatter = "shfmt";
