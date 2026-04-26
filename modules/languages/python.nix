@@ -1,7 +1,7 @@
 _: {
   languages.config.python = {
     filetypes = [ "python" ];
-    lsp = "pyright";
+    lsp = "basedpyright";
     formatter = "black";
     treesitter = "python";
     linters = [

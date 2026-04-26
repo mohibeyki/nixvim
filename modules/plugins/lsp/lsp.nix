@@ -1,8 +1,19 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  ...
+}:
 let
   enabledWithLsp = lib.filterAttrs (_: cfg: cfg.lsp != null) config.languages.enabledConfigs;
   lspServers = lib.mapAttrs' (
-    _: cfg: lib.nameValuePair cfg.lsp ({ enable = true; } // cfg.lspSettings)
+    _: cfg:
+    lib.nameValuePair cfg.lsp (
+      {
+        enable = true;
+        package = null;
+      }
+      // cfg.lspSettings
+    )
   ) enabledWithLsp;
 in
 {
@@ -96,6 +107,14 @@ in
         if supports("textDocument/prepareCallHierarchy") then
           map("n", "gai", vim.lsp.buf.incoming_calls, "Calls Incoming")
           map("n", "gao", vim.lsp.buf.outgoing_calls, "Calls Outgoing")
+        end
+
+        if supports("textDocument/typeDefinition") then
+          map("n", "gy", vim.lsp.buf.type_definition, "Type Definition")
+        end
+
+        if supports("textDocument/implementation") then
+          map("n", "gi", vim.lsp.buf.implementation, "Implementation")
         end
 
         if supports("workspace/willRenameFiles") or supports("workspace/didRenameFiles") then

@@ -1,4 +1,8 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  ...
+}:
 let
   enabledWithFormatters = lib.filterAttrs (_: v: v.formatter != null) config.languages.enabledConfigs;
 
@@ -13,6 +17,7 @@ in
 {
   plugins.conform-nvim = {
     enable = true;
+    autoInstall.enable = false;
     settings = {
       format_on_save.__raw = ''
         function(bufnr)

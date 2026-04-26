@@ -49,9 +49,12 @@ Leader key: `Space`
 ### LSP
 - `gd` - Goto definition
 - `gr` - References
+- `gy` - Type definition
+- `gi` - Implementation
 - `K` - Hover
 - `<leader>ca` - Code action
 - `<leader>cr` - Rename
+- `]]` / `[[` - Next/prev reference (document highlight)
 
 ### Git
 - `<leader>gg` - LazyGit

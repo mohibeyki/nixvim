@@ -34,34 +34,34 @@ _: {
         enable = true;
         set_jumps = true;
         goto_next_start = {
-          "]m" = "@function.outer";
-          "]]" = "@class.outer";
+          "]f" = "@function.outer";
+          "]c" = "@class.outer";
           "]o" = "@loop.outer";
           "]s" = "@statement.outer";
           "]a" = "@parameter.outer";
-          "]c" = "@conditional.outer";
+          "]k" = "@conditional.outer";
         };
         goto_next_end = {
-          "]M" = "@function.outer";
-          "][" = "@class.outer";
+          "]F" = "@function.outer";
+          "]C" = "@class.outer";
           "]O" = "@loop.outer";
           "]A" = "@parameter.outer";
-          "]C" = "@conditional.outer";
+          "]K" = "@conditional.outer";
         };
         goto_previous_start = {
-          "[m" = "@function.outer";
-          "[[" = "@class.outer";
+          "[f" = "@function.outer";
+          "[c" = "@class.outer";
           "[o" = "@loop.outer";
           "[s" = "@statement.outer";
           "[a" = "@parameter.outer";
-          "[c" = "@conditional.outer";
+          "[k" = "@conditional.outer";
         };
         goto_previous_end = {
-          "[M" = "@function.outer";
-          "[]" = "@class.outer";
+          "[F" = "@function.outer";
+          "[C" = "@class.outer";
           "[O" = "@loop.outer";
           "[A" = "@parameter.outer";
-          "[C" = "@conditional.outer";
+          "[K" = "@conditional.outer";
         };
       };
       swap = {

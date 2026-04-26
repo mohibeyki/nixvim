@@ -15,41 +15,6 @@ _: {
       };
     }
 
-    # ── comment-box ──────────────────────────────────────────────────────────
-    {
-      mode = [
-        "n"
-        "x"
-      ];
-      key = "<leader>mb";
-      action = "<cmd>CBllbox<CR>";
-      options = {
-        desc = "Comment Box";
-        silent = true;
-      };
-    }
-    {
-      mode = [
-        "n"
-        "x"
-      ];
-      key = "<leader>ml";
-      action = "<cmd>CBline<CR>";
-      options = {
-        desc = "Comment Line";
-        silent = true;
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>mC";
-      action = "<cmd>CBcatalog<CR>";
-      options = {
-        desc = "Comment Box Catalog";
-        silent = true;
-      };
-    }
-
     # ── persistence ───────────────────────────────────────────────────────────
     {
       mode = "n";

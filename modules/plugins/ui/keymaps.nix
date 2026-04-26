@@ -1,4 +1,8 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  ...
+}:
 {
   keymaps =
     # ── bufferline (conditional on plugin being enabled) ──────────────────────

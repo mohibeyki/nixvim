@@ -6,12 +6,5 @@ _: {
         style = "moon";
       };
     };
-
-    tokyonight = {
-      enable = false;
-      settings = {
-        style = "moon";
-      };
-    };
   };
 }

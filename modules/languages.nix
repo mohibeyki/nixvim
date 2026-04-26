@@ -1,4 +1,8 @@
-{ lib, config, ... }:
+{
+  lib,
+  config,
+  ...
+}:
 let
   cfg = config.languages;
 in
@@ -57,14 +61,17 @@ in
   config.languages.enabled = [
     "bash"
     "c"
+    "css"
     "fish"
     "go"
+    "html"
     "json"
     "lua"
     "markdown"
     "nix"
     "python"
     "rust"
+    "toml"
     "typescript"
     "yaml"
   ];

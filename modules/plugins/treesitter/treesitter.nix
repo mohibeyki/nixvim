@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   enabledWithTs = lib.filterAttrs (_: cfg: cfg.treesitter != null) config.languages.enabledConfigs;
   grammarNames = lib.concatMap (
@@ -13,7 +18,9 @@ in
       highlight.enable = true;
       indent.enable = true;
     };
-    grammarPackages = map (name: pkgs.vimPlugins.nvim-treesitter.builtGrammars.${name}) grammarNamesUnique;
+    grammarPackages = map (
+      name: pkgs.vimPlugins.nvim-treesitter.builtGrammars.${name}
+    ) grammarNamesUnique;
   };
 
   extraConfigLua = ''

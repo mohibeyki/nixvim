@@ -1,4 +1,8 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  ...
+}:
 {
   # ============================================================================
   # Performance Optimization
@@ -142,5 +146,27 @@
     -- Centralized undo files
     vim.opt.undodir = vim.fn.stdpath("data") .. "/undo//"
     vim.fn.mkdir(vim.opt.undodir:get()[1], "p")
+
+    -- Auto-clean stale undo files on exit
+    vim.api.nvim_create_autocmd("VimLeavePre", {
+      callback = function()
+        local undodir = vim.fn.stdpath("data") .. "/undo"
+        local handle = vim.uv.fs_scandir(undodir)
+        if not handle then
+          return
+        end
+        repeat
+          local name, _ = vim.uv.fs_scandir_next(handle)
+          if not name then
+            break
+          end
+          -- Vim encodes path separators as %, decode back
+          local path = name:gsub("%%", "/"):sub(2)
+          if not vim.uv.fs_stat(path) then
+            vim.uv.fs_unlink(undodir .. "/" .. name)
+          end
+        until not name
+      end,
+    })
   '';
 }

@@ -1,4 +1,8 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  ...
+}:
 let
   enabledWithLinters = lib.filterAttrs (_: v: v.linters != null) config.languages.enabledConfigs;
   lintersByFt = lib.foldlAttrs (

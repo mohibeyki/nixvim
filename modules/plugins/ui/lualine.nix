@@ -41,7 +41,10 @@ _: {
             __unkeyed = "filetype";
             icon_only = true;
             separator = "";
-            padding = { left = 1; right = 0; };
+            padding = {
+              left = 1;
+              right = 0;
+            };
           }
           # Pretty path
           {
@@ -69,7 +72,7 @@ _: {
         lualine_x = [
           # Snacks profiler status
           {
-            __unkeyed.__raw = ''function() return Snacks.profiler.status() end'';
+            __unkeyed.__raw = "function() return Snacks.profiler.status() end";
             cond.__raw = ''function() return Snacks.profiler.status() ~= "" end'';
           }
           # noice command status
@@ -116,11 +119,17 @@ _: {
           {
             __unkeyed = "progress";
             separator = " ";
-            padding = { left = 1; right = 0; };
+            padding = {
+              left = 1;
+              right = 0;
+            };
           }
           {
             __unkeyed = "location";
-            padding = { left = 0; right = 1; };
+            padding = {
+              left = 0;
+              right = 1;
+            };
           }
         ];
         lualine_z = [
@@ -129,7 +138,7 @@ _: {
           }
         ];
       };
-      extensions = [ "lazy" "fzf" ];
+      extensions = [ ];
     };
   };
 }

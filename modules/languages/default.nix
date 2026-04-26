@@ -2,14 +2,17 @@
   imports = [
     ./bash.nix
     ./c.nix
+    ./css.nix
     ./fish.nix
     ./go.nix
+    ./html.nix
     ./json.nix
     ./lua.nix
     ./markdown.nix
     ./nix.nix
     ./python.nix
     ./rust.nix
+    ./toml.nix
     ./typescript.nix
     ./yaml.nix
   ];
