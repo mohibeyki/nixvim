@@ -1,5 +1,5 @@
 {
-  description = "Mohi's NeoVim configuration";
+  description = "Mohi's NixVim configuration";
 
   nixConfig = {
     extra-substituters = [
@@ -35,12 +35,17 @@
       systems = [
         "aarch64-darwin"
         "aarch64-linux"
+        "x86_64-darwin"
         "x86_64-linux"
       ];
 
       perSystem =
-        { pkgs, system, ... }:
+        { system, ... }:
         let
+          pkgs = import inputs.nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+          };
           pkgs' = pkgs.extend neovim-nightly-overlay.overlays.default;
           nixvim' = inputs.nixvim.legacyPackages.${system};
           nvim = nixvim'.makeNixvimWithModule {

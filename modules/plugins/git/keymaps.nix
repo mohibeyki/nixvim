@@ -10,6 +10,7 @@ _: {
         end
       '';
       options = {
+        silent = true;
         desc = "Lazygit (Root Dir)";
       };
     }
@@ -22,6 +23,7 @@ _: {
         end
       '';
       options = {
+        silent = true;
         desc = "Lazygit (cwd)";
       };
     }

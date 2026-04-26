@@ -130,13 +130,13 @@
       {
         mode = "n";
         key = "<leader>n";
-        action = ''<cmd>lua require("noice").cmd("history")<cr>'';
+        action = ''<cmd>lua require("noice").cmd("history")<CR>'';
         options.desc = "Notification History";
       }
       {
         mode = "n";
         key = "<leader>un";
-        action = ''<cmd>lua require("noice").cmd("dismiss")<cr>'';
+        action = ''<cmd>lua require("noice").cmd("dismiss")<CR>'';
         options.desc = "Dismiss All Notifications";
       }
       {
@@ -148,37 +148,37 @@
       {
         mode = "c";
         key = "<S-Enter>";
-        action = ''<cmd>lua require("noice").redirect(vim.fn.getcmdline())<cr>'';
+        action = ''<cmd>lua require("noice").redirect(vim.fn.getcmdline())<CR>'';
         options.desc = "Redirect Cmdline";
       }
       {
         mode = "n";
         key = "<leader>snl";
-        action = ''<cmd>lua require("noice").cmd("last")<cr>'';
+        action = ''<cmd>lua require("noice").cmd("last")<CR>'';
         options.desc = "Noice Last Message";
       }
       {
         mode = "n";
         key = "<leader>snh";
-        action = ''<cmd>lua require("noice").cmd("history")<cr>'';
+        action = ''<cmd>lua require("noice").cmd("history")<CR>'';
         options.desc = "Noice History";
       }
       {
         mode = "n";
         key = "<leader>sna";
-        action = ''<cmd>lua require("noice").cmd("all")<cr>'';
+        action = ''<cmd>lua require("noice").cmd("all")<CR>'';
         options.desc = "Noice All";
       }
       {
         mode = "n";
         key = "<leader>snd";
-        action = ''<cmd>lua require("noice").cmd("dismiss")<cr>'';
+        action = ''<cmd>lua require("noice").cmd("dismiss")<CR>'';
         options.desc = "Dismiss All";
       }
       {
         mode = "n";
         key = "<leader>snt";
-        action = ''<cmd>lua require("noice").cmd("pick")<cr>'';
+        action = ''<cmd>lua require("noice").cmd("pick")<CR>'';
         options.desc = "Noice Picker";
       }
       {
@@ -232,7 +232,7 @@
       {
         mode = "n";
         key = "<leader>ui";
-        action = "<cmd>lua vim.show_pos()<cr>";
+        action = "<cmd>lua vim.show_pos()<CR>";
         options.desc = "Inspect Pos";
       }
       {

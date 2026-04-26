@@ -1,7 +1,6 @@
 _: {
   imports = [
     ./keymaps.nix
-    ./comment-box.nix
     ./markview.nix
     ./persistence.nix
     ./todo-comments.nix

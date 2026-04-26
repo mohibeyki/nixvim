@@ -1,12 +1,13 @@
 _: {
   plugins.mini.modules.ai = {
+    enable = true;
     mappings = {
       around = "a";
       inside = "i";
       around_next = "an";
       inside_next = "in";
-      around_last = "";
-      inside_last = "";
+      around_last = "al";
+      inside_last = "il";
       goto_left = "g[";
       goto_right = "g]";
     };

@@ -35,6 +35,7 @@ _: {
       key = "go";
       action.__raw = ''function() return require("opencode").operator("@this ") end'';
       options = {
+        silent = true;
         desc = "Add Range to OpenCode";
         expr = true;
       };
@@ -44,6 +45,7 @@ _: {
       key = "goo";
       action.__raw = ''function() return require("opencode").operator("@this ") .. "_" end'';
       options = {
+        silent = true;
         desc = "Add Line to OpenCode";
         expr = true;
       };

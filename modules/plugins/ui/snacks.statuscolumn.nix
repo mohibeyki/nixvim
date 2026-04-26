@@ -5,7 +5,6 @@ _: {
       "mark"
       "sign"
       "git"
-      "fold"
     ];
     right = [
       "line"

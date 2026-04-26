@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, config, ... }:
 {
   # ============================================================================
   # Performance Optimization
@@ -49,11 +49,12 @@
     number = true; # Show absolute line numbers
     relativenumber = true; # Show relative line numbers
     cursorline = true; # Highlight current line
+    cursorlineopt = "both"; # Highlight both line and line number
     signcolumn = "yes"; # Always show sign column
     termguicolors = true; # Enable 24-bit colors
-    cmdheight = 0; # Hide command line (use noice instead)
+    cmdheight = 1; # Default command line height (noice handles cmdline UI)
     showmode = false; # Don't show mode (use lualine instead)
-    showtabline = 0; # Hide tabline (use bufferline instead)
+    showtabline = 2; # Always show tabline for bufferline
 
     # --------------------------------------------------------------------------
     # Indentation & Tabs
@@ -80,6 +81,8 @@
     smartcase = true; # Don't ignore case with capitals
     grepprg = "rg --vimgrep";
     grepformat = "%f:%l:%c:%m";
+    inccommand = "split"; # Live preview of substitutions
+    diffopt = "internal,filler,closeoff,indent-heuristic,linematch:60,algorithm:histogram";
 
     # --------------------------------------------------------------------------
     # Window Management
@@ -92,16 +95,7 @@
     # --------------------------------------------------------------------------
     mouse = "a"; # Enable mouse in all modes
     updatetime = 200; # Faster completion (default 4000ms)
-    timeoutlen = 500; # Which-key timeout (ms)
-
-    # --------------------------------------------------------------------------
-    # Completion (for blink-cmp)
-    # --------------------------------------------------------------------------
-    completeopt = [
-      "menuone"
-      "noselect"
-      "noinsert"
-    ];
+    timeoutlen = 300; # Which-key timeout (ms)
 
     # --------------------------------------------------------------------------
     # Persistence
@@ -112,18 +106,41 @@
     autoread = true; # Auto-reload changed files
 
     # --------------------------------------------------------------------------
-    # Encoding
-    # --------------------------------------------------------------------------
-    encoding = "utf-8";
-    fileencoding = "utf-8";
-
-    # --------------------------------------------------------------------------
     # Misc
     # --------------------------------------------------------------------------
     colorcolumn = "80";
 
+    # Whitespace visualization
+    list = true;
+    listchars = {
+      tab = "» ";
+      trail = "·";
+      nbsp = "␣";
+      extends = "›";
+      precedes = "‹";
+    };
+
+    # Fill characters
+    fillchars = {
+      diff = "╱";
+      eob = " ";
+    };
+
     # Window title for window managers
     title = true;
     titlestring = "%t - NVIM";
+
+    # Command-line completion
+    wildmode = "longest:full,full";
+
+    # Completion menu settings
+    completeopt = "menu,menuone,noselect";
+    pumheight = 10;
   };
+
+  extraConfigLua = ''
+    -- Centralized undo files
+    vim.opt.undodir = vim.fn.stdpath("data") .. "/undo//"
+    vim.fn.mkdir(vim.opt.undodir:get()[1], "p")
+  '';
 }

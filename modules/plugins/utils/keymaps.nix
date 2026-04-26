@@ -60,6 +60,7 @@ _: {
         end
       '';
       options = {
+        silent = true;
         desc = "Restore Session";
       };
     }
@@ -72,6 +73,7 @@ _: {
         end
       '';
       options = {
+        silent = true;
         desc = "Select Session";
       };
     }
@@ -84,6 +86,7 @@ _: {
         end
       '';
       options = {
+        silent = true;
         desc = "Restore Last Session";
       };
     }
@@ -96,6 +99,7 @@ _: {
         end
       '';
       options = {
+        silent = true;
         desc = "Don't Save Current Session";
       };
     }
@@ -121,6 +125,7 @@ _: {
         end
       '';
       options = {
+        silent = true;
         desc = "Next Todo Comment";
       };
     }
@@ -133,6 +138,7 @@ _: {
         end
       '';
       options = {
+        silent = true;
         desc = "Previous Todo Comment";
       };
     }
@@ -163,6 +169,7 @@ _: {
         end
       '';
       options = {
+        silent = true;
         desc = "Open Yank History";
       };
     }
@@ -174,6 +181,7 @@ _: {
       key = "y";
       action = "<Plug>(YankyYank)";
       options = {
+        silent = true;
         desc = "Yank Text";
       };
     }
@@ -185,6 +193,7 @@ _: {
       key = "p";
       action = "<Plug>(YankyPutAfter)";
       options = {
+        silent = true;
         desc = "Put Text After Cursor";
       };
     }
@@ -196,6 +205,7 @@ _: {
       key = "P";
       action = "<Plug>(YankyPutBefore)";
       options = {
+        silent = true;
         desc = "Put Text Before Cursor";
       };
     }
@@ -207,6 +217,7 @@ _: {
       key = "gp";
       action = "<Plug>(YankyGPutAfter)";
       options = {
+        silent = true;
         desc = "Put Text After Selection";
       };
     }
@@ -218,6 +229,7 @@ _: {
       key = "gP";
       action = "<Plug>(YankyGPutBefore)";
       options = {
+        silent = true;
         desc = "Put Text Before Selection";
       };
     }
@@ -226,6 +238,7 @@ _: {
       key = "[y";
       action = "<Plug>(YankyCycleForward)";
       options = {
+        silent = true;
         desc = "Cycle Forward Through Yank History";
       };
     }
@@ -234,6 +247,7 @@ _: {
       key = "]y";
       action = "<Plug>(YankyCycleBackward)";
       options = {
+        silent = true;
         desc = "Cycle Backward Through Yank History";
       };
     }

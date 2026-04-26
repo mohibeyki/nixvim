@@ -23,54 +23,6 @@ in
     inlayHints = true;
 
     servers = lspServers;
-
-    keymaps = {
-      silent = true;
-      lspBuf = {
-        "gd" = {
-          action = "definition";
-          desc = "Goto Definition";
-        };
-        "gr" = {
-          action = "references";
-          desc = "References";
-        };
-        "gD" = {
-          action = "declaration";
-          desc = "Goto Declaration";
-        };
-        "gI" = {
-          action = "implementation";
-          desc = "Goto Implementation";
-        };
-        "gy" = {
-          action = "type_definition";
-          desc = "Goto T[y]pe Definition";
-        };
-        "K" = {
-          action = "hover";
-          desc = "Hover";
-        };
-        "<leader>cr" = {
-          action = "rename";
-          desc = "Rename";
-        };
-      };
-      diagnostic = {
-        "<leader>cd" = {
-          action = "open_float";
-          desc = "Line Diagnostics";
-        };
-        "]d" = {
-          action = "goto_next";
-          desc = "Next Diagnostic";
-        };
-        "[d" = {
-          action = "goto_prev";
-          desc = "Prev Diagnostic";
-        };
-      };
-    };
   };
 
   extraConfigLua = ''

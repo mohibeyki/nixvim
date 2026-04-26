@@ -71,6 +71,7 @@ _: {
         end
       '';
       options = {
+        silent = true;
         desc = "Escape and Clear hlsearch";
         expr = true;
       };
@@ -98,6 +99,7 @@ _: {
       key = "n";
       action = "'Nn'[v:searchforward].(mode() ==# 'n' ? 'zv' : '')";
       options = {
+        silent = true;
         desc = "Next Search Result";
         expr = true;
       };
@@ -111,6 +113,7 @@ _: {
       key = "N";
       action = "'nN'[v:searchforward].(mode() ==# 'n' ? 'zv' : '')";
       options = {
+        silent = true;
         desc = "Prev Search Result";
         expr = true;
       };
@@ -197,6 +200,7 @@ _: {
       key = "<leader>-";
       action = "<C-W>s";
       options = {
+        silent = true;
         desc = "Split Window Below";
         remap = true;
       };
@@ -206,6 +210,7 @@ _: {
       key = "<leader>|";
       action = "<C-W>v";
       options = {
+        silent = true;
         desc = "Split Window Right";
         remap = true;
       };
@@ -215,6 +220,7 @@ _: {
       key = "<leader>wd";
       action = "<C-W>c";
       options = {
+        silent = true;
         desc = "Delete Window";
         remap = true;
       };

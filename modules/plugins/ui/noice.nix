@@ -2,14 +2,6 @@ _: {
   plugins.noice = {
     enable = true;
     settings = {
-      notify = {
-        enabled = true;
-        view = "notify";
-      };
-      messages = {
-        enabled = true;
-        view = "notify";
-      };
       lsp = {
         message = {
           enabled = true;
@@ -21,6 +13,7 @@ _: {
         override = {
           "vim.lsp.util.convert_input_to_markdown_lines" = true;
           "vim.lsp.util.stylize_markdown" = true;
+          "cmp.entry.get_documentation" = true;
         };
       };
       popupmenu = {
@@ -31,12 +24,13 @@ _: {
         {
           filter = {
             event = "msg_show";
-            kind = "";
-            find = "^[0-9]+ lines [0-9]+ bytes";
+            any = [
+              { find = "%d+L, %d+B"; }
+              { find = "; after #%d+"; }
+              { find = "; before #%d+"; }
+            ];
           };
-          opts = {
-            skip = true;
-          };
+          view = "mini";
         }
         {
           filter = {
@@ -48,6 +42,11 @@ _: {
           };
         }
       ];
+      presets = {
+        bottom_search = true;
+        command_palette = true;
+        long_message_to_split = true;
+      };
       cmdline = {
         format = {
           filter = {

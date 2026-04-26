@@ -14,7 +14,7 @@ _: {
         icon = "󰱽 ";
         key = "f";
         desc = "Find File";
-        action = "<cmd>lua Snacks.picker.files({ hidden = true })<cr>";
+        action = "<cmd>lua Snacks.picker.files({ hidden = true })<CR>";
         gap = 1;
         padding = 1;
       }
@@ -22,7 +22,7 @@ _: {
         icon = "󰺮 ";
         key = "g";
         desc = "Find Text";
-        action = "<cmd>lua Snacks.picker.grep()<cr>";
+        action = "<cmd>lua Snacks.picker.grep()<CR>";
         gap = 1;
         padding = 1;
       }
@@ -30,7 +30,7 @@ _: {
         icon = "󰕁 ";
         title = "Recent Files";
         key = "r";
-        action = "<cmd>lua Snacks.picker.recent()<cr>";
+        action = "<cmd>lua Snacks.picker.recent()<CR>";
         section = "recent_files";
         indent = 2;
         padding = 1;
@@ -39,7 +39,7 @@ _: {
         icon = "󰝰 ";
         title = "Projects";
         key = "p";
-        action = "<cmd>lua Snacks.picker.projects()<cr>";
+        action = "<cmd>lua Snacks.picker.projects()<CR>";
         section = "projects";
         indent = 2;
         padding = 1;

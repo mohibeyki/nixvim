@@ -45,12 +45,12 @@ _: {
           group = "+markdown";
         }
         {
-          __unkeyed-1 = "<leader>o";
-          group = "+opencode";
+          __unkeyed-1 = "<leader>n";
+          group = "+notifications";
         }
         {
-          __unkeyed-1 = "<leader>v";
-          group = "+visits";
+          __unkeyed-1 = "<leader>o";
+          group = "+opencode";
         }
         {
           __unkeyed-1 = "[";

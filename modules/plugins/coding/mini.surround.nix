@@ -1,5 +1,6 @@
 _: {
   plugins.mini.modules.surround = {
+    enable = true;
     mappings = {
       add = "gza";
       delete = "gzd";

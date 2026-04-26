@@ -17,16 +17,6 @@ _: {
       command = "setlocal spell spelllang=en";
     }
 
-    # Enter git buffer in insert mode
-    {
-      event = "FileType";
-      pattern = [
-        "gitcommit"
-        "gitrebase"
-      ];
-      command = "startinsert | 1";
-    }
-
     # Auto-resize splits when window is resized
     {
       event = "VimResized";
